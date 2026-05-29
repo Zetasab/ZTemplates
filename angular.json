@@ -2,7 +2,8 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "cli": {
-    "packageManager": "npm"
+    "packageManager": "npm",
+    "analytics": false
   },
   "newProjectRoot": "projects",
   "projects": {
@@ -21,7 +22,19 @@
             "assets": [
               {
                 "glob": "**/*",
-                "input": "public"
+                "input": "public",
+                "ignore": [
+                  "templates/**/node_modules/**",
+                  "templates/**/src/**",
+                  "templates/**/vite.config.*",
+                  "templates/**/tsconfig*.json",
+                  "templates/**/package.json",
+                  "templates/**/package-lock.json",
+                  "templates/**/bun.lock*",
+                  "templates/**/.git/**",
+                  "templates/**/.tanstack/**",
+                  "templates/**/.lovable/**"
+                ]
               }
             ],
             "styles": [
@@ -38,8 +51,8 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "4kB",
-                  "maximumError": "8kB"
+                  "maximumWarning": "16kB",
+                  "maximumError": "32kB"
                 }
               ],
               "outputHashing": "all"

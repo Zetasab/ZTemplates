@@ -1,5 +1,58 @@
 {
-    "chat.tools.terminal.autoApprove": {
-        "npm install": true
-    }
+  "workbench.colorCustomizations": {
+    // ---- Personalización General del Entorno ----
+    "activityBar.background": "#141226",
+    "activityBar.foreground": "#7661f4",
+    "activityBar.inactiveForeground": "#7661f466",
+    "activityBarBadge.background": "#7661f4",
+    "activityBarBadge.foreground": "#ffffff",
+    
+    // ---- Barra Lateral (Explorador) ----
+    "sideBar.background": "#191630",
+    "sideBar.foreground": "#e5e2fc",
+    "sideBarTitle.foreground": "#9685f7",
+    "sideBarSectionHeader.background": "#221e42",
+    
+    // ---- Editor de Código ----
+    "editor.background": "#100d1f",
+    "editor.foreground": "#e5e2fc",
+    "editorLineNumber.foreground": "#7661f440",
+    "editorLineNumber.activeForeground": "#9685f7",
+    
+    // ---- Selecciones y Resaltados ----
+    "editor.selectionBackground": "#7661f44d",
+    "editor.inactiveSelectionBackground": "#7661f426",
+    "editor.lineHighlightBackground": "#7661f413",
+    "editor.lineHighlightBorder": "#7661f422",
+    
+    // ---- Pestañas (Tabs) ----
+    "tab.activeBackground": "#100d1f",
+    "tab.activeForeground": "#ffffff",
+    "tab.inactiveBackground": "#16132b",
+    "tab.inactiveForeground": "#9685f780",
+    "tab.activeBorderTop": "#7661f4",
+    
+    // ---- Barra de Estado (Status Bar) ----
+    "statusBar.background": "#7661f4",
+    "statusBar.foreground": "#ffffff",
+    "statusBar.noFolderBackground": "#533ed1",
+    
+    // ---- Terminal Integrada ----
+    "terminal.background": "#100d1f",
+    "terminal.foreground": "#e5e2fc",
+    "terminal.ansiAnsiBrightPurple": "#9685f7",
+    "terminal.ansiPurple": "#7661f4",
+    
+    // ---- Bordes e Interfaces Modernas ----
+    "focusBorder": "#7661f4",
+    "titleBar.activeBackground": "#141226",
+    "titleBar.activeForeground": "#e5e2fc"
+  },
+  "chat.tools.terminal.autoApprove": {
+    "Test-Path": true,
+    "npm install": true,
+    "ConvertFrom-Json": true,
+    "Set-Content": true,
+    "npm run prestart": true
+  }
 }

@@ -1,8 +1,34 @@
 [
   {
-    "id": "demo-react-app",
-    "name": "DEMO REACT APP",
-    "path": "/templates/demo-react-app/",
-    "downloadPath": "/templates/demo-react-app"
+    "id": "Animations3d",
+    "name": "ANIMATIONS3D",
+    "path": "/templates/Animations3d/dist/index.html",
+    "downloadPath": "/templates/Animations3d",
+    "imagePath": "/templates/Animations3d/portada.png",
+    "zipPath": null
+  },
+  {
+    "id": "aura-project",
+    "name": "AURA PROJECT",
+    "path": "/templates/aura-project/dist/client/index.html",
+    "downloadPath": "/templates/aura-project",
+    "imagePath": "/templates/aura-project/portada.png",
+    "zipPath": "/templates/aura-project/descarga.zip"
+  },
+  {
+    "id": "pharmamodern-project",
+    "name": "PHARMAMODERN PROJECT",
+    "path": "/templates/pharmamodern-project/dist/client/index.html",
+    "downloadPath": "/templates/pharmamodern-project",
+    "imagePath": "/templates/pharmamodern-project/portada.png",
+    "zipPath": "/templates/pharmamodern-project/descarga.zip"
+  },
+  {
+    "id": "portfolio-proyecto",
+    "name": "PORTFOLIO PROYECTO",
+    "path": "/templates/portfolio-proyecto/dist/index.html",
+    "downloadPath": "/templates/portfolio-proyecto",
+    "imagePath": "/templates/portfolio-proyecto/portada.png",
+    "zipPath": "/templates/portfolio-proyecto/descarga.zip"
   }
 ]

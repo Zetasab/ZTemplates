@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Animation3d - Triumph</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="icon.png" type="image/x-icon" /> 
+</head>
+<body class="is-loading">
+
+  <div id="splash-screen" aria-live="polite">
+    <div class="splash-content">
+      <span class="splash-kicker">Limited Edition Performance</span>
+      <h1 class="splash-brand">TRIUMPH</h1>
+      <p class="splash-copy">Cargando Speed Triple 1050</p>
+      <div class="splash-progress" aria-hidden="true">
+        <span class="splash-progress-bar"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Canvas Three.js fijo -->
+  <canvas id="canvas"></canvas>
+
+  <!-- Barra de progreso -->
+  <div id="progress-bar"></div>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <button type="button" class="nav-brand" id="reload-page">TRIUMPH</button>
+    <ul class="nav-links">
+      <li><a href="#section-cockpit">Motor</a></li>
+      <li><a href="#section-chassis">Chasis</a></li>
+      <li><a href="#section-tech">Tech</a></li>
+      <li><a href="#section-about">About</a></li>
+      <li><a href="#section-pricing">Pricing</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-tag">Edición Limitada &nbsp;·&nbsp; 100 unidades</div>
+    <h1 class="hero-title">SPEED<br/><span>TRIPLE</span></h1>
+    <p class="hero-sub">1050 cc · 150 CV · 3 cilindros</p>
+    <div class="scroll-hint">
+      <span>Desliza para descubrir</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 01 — MOTOR -->
+  <section class="feature-section" id="section-cockpit">
+    <div class="feature-number">01</div>
+    <div class="feature-content left">
+      <span class="feature-tag">Motor</span>
+      <h2 class="feature-title">1050 cc de<br/>pura rabia</h2>
+      <p class="feature-desc">Motor tricilíndrico en línea. 150 CV a 11.000 rpm. Torque lineal desde 3.000 rpm. El sonido más salvaje de la gama naked.</p>
+      <h3 class="detail-title">Motor</h3>
+      <ul class="detail-points motor-details">
+        <li class="motor-point"><strong>Arquitectura triple:</strong> cigüeñal de baja inercia para subida de vueltas rápida y entrega contundente desde medio régimen.</li>
+        <li class="motor-point"><strong>Admisión optimizada:</strong> trompetas de longitud variable para mantener llenado eficiente entre 3.500 y 10.500 rpm.</li>
+        <li class="motor-point"><strong>Mapa Sport calibrado:</strong> acelerador electrónico con respuesta directa y control fino para curvas enlazadas.</li>
+      </ul>
+      <ul class="feature-list">
+        <li><span>Cilindrada</span><strong>1050 cc</strong></li>
+        <li><span>Potencia</span><strong>150 CV</strong></li>
+        <li><span>Par máximo</span><strong>105 Nm</strong></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 02 — CHASIS -->
+  <section class="feature-section" id="section-chassis">
+    <div class="feature-number">02</div>
+    <div class="feature-content right">
+      <span class="feature-tag">Chasis</span>
+      <h2 class="feature-title">Ingeniería<br/>de aluminio</h2>
+      <p class="feature-desc">Chasis perimetral de aluminio de doble viga. Basculante monobrazo. Suspensión Öhlins STX22 ajustable en compresión y extensión.</p>
+      <h3 class="detail-title">Chasis</h3>
+      <ul class="detail-points chassis-details">
+        <li class="chassis-point"><strong>Rigidez torsional balanceada:</strong> estabilidad en frenada fuerte sin perder agilidad en cambios de dirección.</li>
+        <li class="chassis-point"><strong>Geometría deportiva:</strong> reparto de masas centrado para entrada precisa y apoyo sólido en mitad de curva.</li>
+        <li class="chassis-point"><strong>Basculante monobrazo:</strong> mejor tracción a la salida y lectura más clara del tren trasero al acelerar.</li>
+      </ul>
+      <ul class="feature-list">
+        <li><span>Suspensión</span><strong>Öhlins STX22</strong></li>
+        <li><span>Frenos</span><strong>Brembo M50</strong></li>
+        <li><span>Peso</span><strong>189 kg</strong></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 03 — TECNOLOGÍA -->
+  <section class="feature-section" id="section-tech">
+    <div class="feature-number">03</div>
+    <div class="feature-content left">
+      <span class="feature-tag">Tecnología</span>
+      <h2 class="feature-title">El control<br/>en tus manos</h2>
+      <p class="feature-desc">TFT de 5" con conectividad GoPro y smartphone. Quickshifter bidireccional. Control de tracción de 5 niveles y 3 modos de conducción.</p>
+      <h3 class="detail-title">Tech</h3>
+      <ul class="detail-points tech-details">
+        <li class="tech-point"><strong>Interfaz TFT:</strong> panel de 5 pulgadas con lectura rápida de marcha, mapa activo y telemetría esencial.</li>
+        <li class="tech-point"><strong>Electrónica configurable:</strong> control de tracción y respuesta del acelerador ajustados para calle, lluvia o conducción deportiva.</li>
+        <li class="tech-point"><strong>Quickshifter bidireccional:</strong> cambios ascendentes y descendentes sin embrague para mantener la moto estable en apoyo.</li>
+      </ul>
+      <ul class="feature-list">
+        <li><span>Pantalla</span><strong>TFT 5"</strong></li>
+        <li><span>Modos</span><strong>Road / Sport / Rain</strong></li>
+        <li><span>Quickshifter</span><strong>Bidireccional</strong></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 04 — ABOUT / FINAL CTA -->
+  <section class="feature-section section-final" id="section-about">
+    <div class="feature-number">04</div>
+    <div class="feature-content about-content">
+      <div class="about-heading">
+        <span class="feature-tag">La leyenda</span>
+        <h2 class="feature-title">Born to<br/>dominate</h2>
+        <p class="feature-desc">La Speed Triple redefine lo que una naked puede ser. No es solo una moto — es una declaración.</p>
+      </div>
+      <div class="about-columns">
+        <div class="about-col about-col-left">
+          <h3 class="detail-title">About</h3>
+          <ul class="detail-points about-details">
+            <li><strong>Diseño sin concesiones:</strong> postura compacta, frontal agresivo y una silueta pensada para transmitir tensión incluso parada.</li>
+            <li><strong>ADN roadster premium:</strong> acabados técnicos, aluminio visto y una puesta en escena que mezcla músculo con precisión.</li>
+            <li><strong>Presencia total:</strong> una moto hecha para llamar la atención tanto en ciudad como en una carretera de montaña.</li>
+          </ul>
+        </div>
+        <div class="about-col about-col-spacer" aria-hidden="true"></div>
+        <div class="about-col about-col-right">
+          <ul class="feature-list about-stats">
+            <li><span>Origen</span><strong>Hinckley, UK</strong></li>
+            <li><span>Carácter</span><strong>Naked deportiva</strong></li>
+            <li><span>Edición</span><strong>Limitada</strong></li>
+          </ul>
+          <a href="#" class="cta-btn">Configurar la tuya</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="feature-section pricing-section" id="section-pricing">
+    <div class="feature-number">05</div>
+    <div class="feature-content left pricing-intro">
+      <span class="feature-tag">Pricing</span>
+      <h2 class="feature-title">Tres formas de<br/>llevarla a casa</h2>
+      <p class="feature-desc">Configuraciones pensadas para distintos niveles de equipamiento, sin perder el carácter radical de la Speed Triple.</p>
+    </div>
+    <div class="pricing-grid">
+      <article class="pricing-card pricing-card-base">
+        <span class="pricing-label">Pure</span>
+        <h3>Speed Triple S</h3>
+        <p class="pricing-price">18.990 €</p>
+        <p class="pricing-copy">La versión esencial con toda la agresividad mecánica y electrónica lista para carretera.</p>
+        <ul class="pricing-list">
+          <li>TFT 5" con modos Road y Sport</li>
+          <li>Suspensión ajustable deportiva</li>
+          <li>Escape sport en acabado satinado</li>
+        </ul>
+      </article>
+      <article class="pricing-card pricing-card-featured">
+        <span class="pricing-label">Rider's Pick</span>
+        <h3>Speed Triple RS</h3>
+        <p class="pricing-price">22.490 €</p>
+        <p class="pricing-copy">La más equilibrada: más precisión, mejor frenada y paquete electrónico completo para uso diario y tandas.</p>
+        <ul class="pricing-list">
+          <li>Öhlins semi-activa calibrada</li>
+          <li>Quickshifter bidireccional + launch assist</li>
+          <li>Frenada Brembo Stylema</li>
+        </ul>
+      </article>
+      <article class="pricing-card pricing-card-premium">
+        <span class="pricing-label">Factory</span>
+        <h3>Speed Triple RR Blackline</h3>
+        <p class="pricing-price">25.990 €</p>
+        <p class="pricing-copy">La interpretación más exclusiva, con acabados oscuros, telemetría extendida y paquete circuito.</p>
+        <ul class="pricing-list">
+          <li>Track pack con mapa Race Pro</li>
+          <li>Cubiertas en fibra técnica y asiento premium</li>
+          <li>Garantía extendida 4 años</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="feature-section story-section" id="section-beyond">
+    <div class="feature-number">06</div>
+    <div class="story-panel">
+      <span class="feature-tag">Beyond The Ride</span>
+      <h2 class="feature-title">No compras una moto.<br/>Entras en una era.</h2>
+      <p class="feature-desc">Eventos privados, rutas nocturnas, acceso prioritario a trackdays y una red de servicio especializada para propietarios Speed Triple.</p>
+      <div class="story-stats">
+        <div class="story-stat">
+          <strong>12</strong>
+          <span>trackdays privados por temporada</span>
+        </div>
+        <div class="story-stat">
+          <strong>48h</strong>
+          <span>máximo de respuesta en servicio premium</span>
+        </div>
+        <div class="story-stat">
+          <strong>1/100</strong>
+          <span>numeración exclusiva de esta edición</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-brand-block">
+      <span class="footer-brand">TRIUMPH</span>
+      <p class="footer-copy">Speed Triple 1050. Diseño británico, carácter tricilíndrico y precisión naked llevada al extremo.</p>
+    </div>
+    <div class="footer-links-block">
+      <a href="#section-cockpit">Motor</a>
+      <a href="#section-chassis">Chasis</a>
+      <a href="#section-tech">Tech</a>
+      <a href="#section-about">About</a>
+      <a href="#section-pricing">Pricing</a>
+      <a href="#section-beyond">Beyond</a>
+    </div>
+    <div class="footer-meta-block">
+      <span>150 CV</span>
+      <span>1050 cc</span>
+      <span>Edición limitada</span>
+    </div>
+  </footer>
+
+  <!-- Importmap Three.js -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.164.1/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.164.1/examples/jsm/"
+    }
+  }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
+  <script type="module" src="main.js"></script>
+</body>
+</html>

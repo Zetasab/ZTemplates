@@ -1,0 +1,34 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "npm install": true,
+        "Test-Path": true,
+        "Move-Item": true
+    },"workbench.colorCustomizations": {
+    // --- BARRAS AMARILLAS CON TEXTO BLANCO ---
+    
+    // Barra de arriba (Título)
+    "titleBar.activeBackground": "#eebb00",
+    "titleBar.activeForeground": "#ffffff",
+    
+    // Barra de iconos pequeña a la izquierda (Activity Bar)
+    "activityBar.background": "#eebb00",
+    "activityBar.foreground": "#ffffff",
+    "activityBar.inactiveForeground": "#ffffff88",
+    "activityBar.badgeBackground": "#ffffff",
+    "activityBar.badgeForeground": "#eebb00",
+
+    // --- RESTO AL COLOR NORMAL DE VS CODE ---
+
+    // Fondo del editor y del explorador de archivos (Gris oscuro estándar)
+    "editor.background": "#1e1e1e",
+    "sideBar.background": "#252526",
+    "sideBar.foreground": "#cccccc",
+    
+    // Texto del código en amarillo claro (como pediste antes)
+    "editor.foreground": "#f2e06d",
+
+    // Barra de estado abajo (también amarilla para combinar)
+    "statusBar.background": "#eebb00",
+    "statusBar.foreground": "#ffffff"
+}
+}
