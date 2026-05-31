@@ -33,7 +33,9 @@
                   "templates/**/bun.lock*",
                   "templates/**/.git/**",
                   "templates/**/.tanstack/**",
-                  "templates/**/.lovable/**"
+                  "templates/**/.lovable/**",
+                  "templates/**/descarga.zip",
+                  "templates/**/*.glb"
                 ]
               }
             ],
@@ -85,6 +87,14 @@
         },
         "test": {
           "builder": "@angular/build:unit-test"
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {
+            "buildTarget": "ZTemplates:build:production",
+            "baseHref": "/",
+            "cname": "templates.cesarsobrino.es"
+          }
         }
       }
     }
