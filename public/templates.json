@@ -10,11 +10,11 @@
       "Lenis",
       "Vite"
     ],
-    "path": "/templates/Animations3d/dist/index.html",
-    "downloadPath": "/templates/Animations3d",
-    "imagePath": "/templates/Animations3d/portada.png",
-    "gifPath": "/templates/Animations3d/portada_gif.gif",
-    "zipPath": "/templates/Animations3d/descarga.zip"
+    "path": "templates/Animations3d/dist/index.html",
+    "downloadPath": "templates/Animations3d",
+    "imagePath": "templates/Animations3d/portada.png",
+    "gifPath": "templates/Animations3d/portada_gif.gif",
+    "zipPath": "templates/Animations3d/descarga.zip"
   },
   {
     "id": "aura-project",
@@ -31,11 +31,11 @@
       "GSAP",
       "Lenis"
     ],
-    "path": "/templates/aura-project/dist/client/index.html",
-    "downloadPath": "/templates/aura-project",
-    "imagePath": "/templates/aura-project/portada.png",
-    "gifPath": "/templates/aura-project/portada_gif.gif",
-    "zipPath": "/templates/aura-project/descarga.zip"
+    "path": "templates/aura-project/dist/client/index.html",
+    "downloadPath": "templates/aura-project",
+    "imagePath": "templates/aura-project/portada.png",
+    "gifPath": "templates/aura-project/portada_gif.gif",
+    "zipPath": "templates/aura-project/descarga.zip"
   },
   {
     "id": "aurum-project",
@@ -52,11 +52,11 @@
       "GSAP",
       "Lenis"
     ],
-    "path": "/templates/aurum-project/dist/client/index.html",
-    "downloadPath": "/templates/aurum-project",
-    "imagePath": "/templates/aurum-project/portada.png",
-    "gifPath": "/templates/aurum-project/portada_gif.gif",
-    "zipPath": "/templates/aurum-project/descarga.zip"
+    "path": "templates/aurum-project/dist/client/index.html",
+    "downloadPath": "templates/aurum-project",
+    "imagePath": "templates/aurum-project/portada.png",
+    "gifPath": "templates/aurum-project/portada_gif.gif",
+    "zipPath": "templates/aurum-project/descarga.zip"
   },
   {
     "id": "kicks-lab-project",
@@ -72,11 +72,11 @@
       "shadcn/ui",
       "GSAP"
     ],
-    "path": "/templates/kicks-lab-project/dist/client/index.html",
-    "downloadPath": "/templates/kicks-lab-project",
-    "imagePath": "/templates/kicks-lab-project/portada.png",
-    "gifPath": "/templates/kicks-lab-project/portada_gif.gif",
-    "zipPath": "/templates/kicks-lab-project/descarga.zip"
+    "path": "templates/kicks-lab-project/dist/client/index.html",
+    "downloadPath": "templates/kicks-lab-project",
+    "imagePath": "templates/kicks-lab-project/portada.png",
+    "gifPath": "templates/kicks-lab-project/portada_gif.gif",
+    "zipPath": "templates/kicks-lab-project/descarga.zip"
   },
   {
     "id": "pharmamodern-project",
@@ -91,11 +91,11 @@
       "Tailwind CSS",
       "shadcn/ui"
     ],
-    "path": "/templates/pharmamodern-project/dist/client/index.html",
-    "downloadPath": "/templates/pharmamodern-project",
-    "imagePath": "/templates/pharmamodern-project/portada.png",
-    "gifPath": "/templates/pharmamodern-project/portada_gif.gif",
-    "zipPath": "/templates/pharmamodern-project/descarga.zip"
+    "path": "templates/pharmamodern-project/dist/client/index.html",
+    "downloadPath": "templates/pharmamodern-project",
+    "imagePath": "templates/pharmamodern-project/portada.png",
+    "gifPath": "templates/pharmamodern-project/portada_gif.gif",
+    "zipPath": "templates/pharmamodern-project/descarga.zip"
   },
   {
     "id": "portfolio-proyecto",
@@ -112,10 +112,10 @@
       "TanStack Query",
       "Vitest"
     ],
-    "path": "/templates/portfolio-proyecto/dist/index.html",
-    "downloadPath": "/templates/portfolio-proyecto",
-    "imagePath": "/templates/portfolio-proyecto/portada.png",
-    "gifPath": "/templates/portfolio-proyecto/portada_gif.gif",
-    "zipPath": "/templates/portfolio-proyecto/descarga.zip"
+    "path": "templates/portfolio-proyecto/dist/index.html",
+    "downloadPath": "templates/portfolio-proyecto",
+    "imagePath": "templates/portfolio-proyecto/portada.png",
+    "gifPath": "templates/portfolio-proyecto/portada_gif.gif",
+    "zipPath": "templates/portfolio-proyecto/descarga.zip"
   }
 ]

@@ -102,19 +102,19 @@ function generateTemplatesJson() {
 
             let imagePath = null;
             if (fs.existsSync(path.join(templatePath, 'portada.png'))) {
-                imagePath = `/templates/${entry.name}/portada.png`;
+                imagePath = `templates/${entry.name}/portada.png`;
             } else if (fs.existsSync(path.join(templatePath, 'portada.jpg'))) {
-                imagePath = `/templates/${entry.name}/portada.jpg`;
+                imagePath = `templates/${entry.name}/portada.jpg`;
             }
 
             let gifPath = null;
             if (fs.existsSync(path.join(templatePath, 'portada_gif.gif'))) {
-                gifPath = `/templates/${entry.name}/portada_gif.gif`;
+                gifPath = `templates/${entry.name}/portada_gif.gif`;
             }
 
             let zipPath = null;
             if (fs.existsSync(path.join(templatePath, 'descarga.zip'))) {
-                zipPath = `/templates/${entry.name}/descarga.zip`;
+                zipPath = `templates/${entry.name}/descarga.zip`;
             }
 
             let langData = null;
@@ -133,8 +133,8 @@ function generateTemplatesJson() {
                 description: langData?.description ?? null,
                 language: langData?.language ?? null,
                 technologies: langData?.technologies ?? [],
-                path: `/templates/${entry.name}/${relativeHtmlPath}`,
-                downloadPath: `/templates/${entry.name}`,
+                path: `templates/${entry.name}/${relativeHtmlPath}`,
+                downloadPath: `templates/${entry.name}`,
                 imagePath: imagePath,
                 gifPath: gifPath,
                 zipPath: zipPath

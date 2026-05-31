@@ -104,7 +104,7 @@ export class App implements OnInit, OnDestroy {
       );
     }, 1500);
     try {
-      const response = await fetch('/templates.json');
+      const response = await fetch('templates.json');
       if (response.ok) {
         const data = await response.json();
         this.templates.set(data);
