@@ -81,7 +81,7 @@ export class App implements OnInit, OnDestroy {
   private readonly onUserInteraction = () => {
     if (!this.visitTracked) {
       this.visitTracked = true;
-      this.tracking.track('ztemplates-web', TemplateVisitType.Visit).subscribe();
+      this.tracking.track('ztemplates-web', TemplateVisitType.Visit);
       this.removeInteractionListeners();
     }
   };
@@ -123,7 +123,7 @@ export class App implements OnInit, OnDestroy {
   }
 
   viewDemo(path: string, name: string) {
-    this.tracking.track(name, TemplateVisitType.Visit).subscribe();
+    this.tracking.track(name, TemplateVisitType.Visit);
     window.open(path, '_blank');
   }
 
@@ -132,7 +132,7 @@ export class App implements OnInit, OnDestroy {
       alert(`No se encontró descarga.zip en la raíz del proyecto "${name}".`);
       return;
     }
-    this.tracking.track(name, TemplateVisitType.Download).subscribe();
+    this.tracking.track(name, TemplateVisitType.Download);
     const a = document.createElement('a');
     a.href = zipPath;
     a.download = `${name}.zip`;
