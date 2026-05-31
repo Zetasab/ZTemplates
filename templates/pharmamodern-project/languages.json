@@ -1,0 +1,6 @@
+{
+  "name": "PharmaModern",
+  "description": "Template corporativo para el sector farmacéutico con dashboard, gestión de productos y UI profesional.",
+  "language": "React",
+  "technologies": ["React 19", "TanStack Start", "TanStack Router", "TanStack Query", "Tailwind CSS", "shadcn/ui"]
+}

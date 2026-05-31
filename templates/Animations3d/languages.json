@@ -1,0 +1,6 @@
+{
+  "name": "Animations 3D",
+  "description": "Template de animaciones 3D inmersivas con geometrías interactivas, scroll suave y efectos visuales avanzados.",
+  "language": "JavaScript",
+  "technologies": ["Three.js", "GSAP", "Lenis", "Vite"]
+}
