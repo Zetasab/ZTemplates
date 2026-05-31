@@ -6,9 +6,13 @@ import { ButtonModule } from 'primeng/button';
 interface TemplateItem {
   id: string;
   name: string;
+  description?: string;
+  language?: string;
+  technologies?: string[];
   path: string;
   downloadPath: string;
   imagePath?: string;
+  gifPath?: string;
   zipPath?: string;
 }
 

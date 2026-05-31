@@ -1,0 +1,158 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+  --radius-2xl: 0px;
+  --radius-3xl: 0px;
+  --radius-4xl: 0px;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ink: var(--ink);
+  --color-paper: var(--paper);
+  --color-pop: var(--pop);
+  --color-volt: var(--volt);
+  --font-display: "Archivo Black", system-ui, sans-serif;
+  --font-body: "Hind", system-ui, sans-serif;
+  --shadow-brutal: 8px 8px 0 0 var(--ink);
+  --shadow-brutal-sm: 4px 4px 0 0 var(--ink);
+  --shadow-brutal-lg: 14px 14px 0 0 var(--ink);
+}
+
+:root {
+  --radius: 0px;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.13 0 0);
+  --ink: oklch(0.13 0 0);
+  --paper: oklch(1 0 0);
+  --pop: oklch(0.68 0.21 38);          /* #ff5722 orange */
+  --volt: oklch(0.94 0.19 102);        /* #ffeb3b yellow */
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.13 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.13 0 0);
+  --primary: oklch(0.68 0.21 38);
+  --primary-foreground: oklch(0.13 0 0);
+  --secondary: oklch(0.94 0.19 102);
+  --secondary-foreground: oklch(0.13 0 0);
+  --muted: oklch(0.96 0 0);
+  --muted-foreground: oklch(0.45 0 0);
+  --accent: oklch(0.94 0.19 102);
+  --accent-foreground: oklch(0.13 0 0);
+  --destructive: oklch(0.6 0.24 27);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.13 0 0);
+  --input: oklch(0.13 0 0);
+  --ring: oklch(0.68 0.21 38);
+  --sidebar: oklch(1 0 0);
+  --sidebar-foreground: oklch(0.13 0 0);
+  --sidebar-primary: oklch(0.13 0 0);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.96 0 0);
+  --sidebar-accent-foreground: oklch(0.13 0 0);
+  --sidebar-border: oklch(0.13 0 0);
+  --sidebar-ring: oklch(0.68 0.21 38);
+  --chart-1: oklch(0.68 0.21 38);
+  --chart-2: oklch(0.94 0.19 102);
+  --chart-3: oklch(0.13 0 0);
+  --chart-4: oklch(0.55 0 0);
+  --chart-5: oklch(0.8 0 0);
+}
+
+.dark {
+  --background: oklch(0.13 0 0);
+  --foreground: oklch(1 0 0);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    -webkit-font-smoothing: antialiased;
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+    line-height: 0.9;
+    text-transform: uppercase;
+  }
+  ::selection {
+    background: var(--pop);
+    color: var(--ink);
+  }
+}
+
+@layer utilities {
+  .font-display { font-family: var(--font-display); }
+  .font-body { font-family: var(--font-body); }
+  .shadow-brutal { box-shadow: var(--shadow-brutal); }
+  .shadow-brutal-sm { box-shadow: var(--shadow-brutal-sm); }
+  .shadow-brutal-lg { box-shadow: var(--shadow-brutal-lg); }
+  .border-ink { border-color: var(--ink); }
+  .bg-ink { background-color: var(--ink); }
+  .text-ink { color: var(--ink); }
+  .bg-paper { background-color: var(--paper); }
+  .text-paper { color: var(--paper); }
+  .bg-pop { background-color: var(--pop); }
+  .text-pop { color: var(--pop); }
+  .bg-volt { background-color: var(--volt); }
+  .text-volt { color: var(--volt); }
+
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    will-change: transform;
+  }
+
+  .grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image: radial-gradient(rgba(0,0,0,0.08) 1px, transparent 1px);
+    background-size: 3px 3px;
+    mix-blend-mode: multiply;
+    opacity: 0.4;
+  }
+
+  .reveal-line {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: top;
+  }
+  .reveal-line > span {
+    display: inline-block;
+    transform: translateY(110%);
+    will-change: transform;
+  }
+}

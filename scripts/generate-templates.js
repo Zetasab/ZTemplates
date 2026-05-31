@@ -107,17 +107,36 @@ function generateTemplatesJson() {
                 imagePath = `/templates/${entry.name}/portada.jpg`;
             }
 
+            let gifPath = null;
+            if (fs.existsSync(path.join(templatePath, 'portada_gif.gif'))) {
+                gifPath = `/templates/${entry.name}/portada_gif.gif`;
+            }
+
             let zipPath = null;
             if (fs.existsSync(path.join(templatePath, 'descarga.zip'))) {
                 zipPath = `/templates/${entry.name}/descarga.zip`;
             }
 
+            let langData = null;
+            const langJsonPath = path.join(templatePath, 'languages.json');
+            if (fs.existsSync(langJsonPath)) {
+                try {
+                    langData = JSON.parse(fs.readFileSync(langJsonPath, 'utf-8'));
+                } catch (e) {
+                    console.warn(`  ⚠ Could not parse languages.json for ${entry.name}`);
+                }
+            }
+
             return {
                 id: entry.name,
-                name: entry.name.replace(/-/g, ' ').toUpperCase(),
+                name: langData?.name ?? entry.name.replace(/-/g, ' ').toUpperCase(),
+                description: langData?.description ?? null,
+                language: langData?.language ?? null,
+                technologies: langData?.technologies ?? [],
                 path: `/templates/${entry.name}/${relativeHtmlPath}`,
                 downloadPath: `/templates/${entry.name}`,
                 imagePath: imagePath,
+                gifPath: gifPath,
                 zipPath: zipPath
             };
         });

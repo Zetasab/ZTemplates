@@ -1,34 +1,121 @@
 [
   {
     "id": "Animations3d",
-    "name": "ANIMATIONS3D",
+    "name": "Animations 3D",
+    "description": "Template de animaciones 3D inmersivas con geometrías interactivas, scroll suave y efectos visuales avanzados.",
+    "language": "JavaScript",
+    "technologies": [
+      "Three.js",
+      "GSAP",
+      "Lenis",
+      "Vite"
+    ],
     "path": "/templates/Animations3d/dist/index.html",
     "downloadPath": "/templates/Animations3d",
     "imagePath": "/templates/Animations3d/portada.png",
+    "gifPath": "/templates/Animations3d/portada_gif.gif",
     "zipPath": null
   },
   {
     "id": "aura-project",
-    "name": "AURA PROJECT",
+    "name": "Aura Project",
+    "description": "Template full-stack con TanStack Start, React 19, shadcn/ui y animaciones premium con GSAP y Lenis.",
+    "language": "React",
+    "technologies": [
+      "React 19",
+      "TanStack Start",
+      "TanStack Router",
+      "TanStack Query",
+      "Tailwind CSS",
+      "shadcn/ui",
+      "GSAP",
+      "Lenis"
+    ],
     "path": "/templates/aura-project/dist/client/index.html",
     "downloadPath": "/templates/aura-project",
     "imagePath": "/templates/aura-project/portada.png",
+    "gifPath": "/templates/aura-project/portada_gif.gif",
     "zipPath": "/templates/aura-project/descarga.zip"
   },
   {
+    "id": "aurum-project",
+    "name": "Aurum Project",
+    "description": "Template premium de landing page con TanStack Start, React 19, Tailwind CSS v4 y componentes shadcn/ui con animaciones GSAP.",
+    "language": "React",
+    "technologies": [
+      "React 19",
+      "TanStack Start",
+      "TanStack Router",
+      "TanStack Query",
+      "Tailwind CSS",
+      "shadcn/ui",
+      "GSAP",
+      "Lenis"
+    ],
+    "path": "/templates/aurum-project/dist/client/index.html",
+    "downloadPath": "/templates/aurum-project",
+    "imagePath": "/templates/aurum-project/portada.png",
+    "gifPath": "/templates/aurum-project/portada_gif.gif",
+    "zipPath": "/templates/aurum-project/descarga.zip"
+  },
+  {
+    "id": "kicks-lab-project",
+    "name": "Kicks Lab",
+    "description": "Template e-commerce de zapatillas con catálogo interactivo, filtros y diseño moderno sobre TanStack Start y React 19.",
+    "language": "React",
+    "technologies": [
+      "React 19",
+      "TanStack Start",
+      "TanStack Router",
+      "TanStack Query",
+      "Tailwind CSS",
+      "shadcn/ui",
+      "GSAP"
+    ],
+    "path": "/templates/kicks-lab-project/dist/client/index.html",
+    "downloadPath": "/templates/kicks-lab-project",
+    "imagePath": "/templates/kicks-lab-project/portada.png",
+    "gifPath": "/templates/kicks-lab-project/portada_gif.gif",
+    "zipPath": "/templates/kicks-lab-project/descarga.zip"
+  },
+  {
     "id": "pharmamodern-project",
-    "name": "PHARMAMODERN PROJECT",
+    "name": "PharmaModern",
+    "description": "Template corporativo para el sector farmacéutico con dashboard, gestión de productos y UI profesional.",
+    "language": "React",
+    "technologies": [
+      "React 19",
+      "TanStack Start",
+      "TanStack Router",
+      "TanStack Query",
+      "Tailwind CSS",
+      "shadcn/ui"
+    ],
     "path": "/templates/pharmamodern-project/dist/client/index.html",
     "downloadPath": "/templates/pharmamodern-project",
     "imagePath": "/templates/pharmamodern-project/portada.png",
+    "gifPath": "/templates/pharmamodern-project/portada_gif.gif",
     "zipPath": "/templates/pharmamodern-project/descarga.zip"
   },
   {
     "id": "portfolio-proyecto",
-    "name": "PORTFOLIO PROYECTO",
+    "name": "Portfolio Proyecto",
+    "description": "Template de portfolio personal con React 18, Vite, Tailwind CSS, animaciones con Framer Motion y test suite con Vitest.",
+    "language": "React",
+    "technologies": [
+      "React 18",
+      "Vite",
+      "Tailwind CSS",
+      "shadcn/ui",
+      "Framer Motion",
+      "React Router",
+      "TanStack Query",
+      "Vitest"
+    ],
     "path": "/templates/portfolio-proyecto/dist/index.html",
     "downloadPath": "/templates/portfolio-proyecto",
     "imagePath": "/templates/portfolio-proyecto/portada.png",
+    "gifPath": "/templates/portfolio-proyecto/portada_gif.gif",
     "zipPath": "/templates/portfolio-proyecto/descarga.zip"
   }
 ]

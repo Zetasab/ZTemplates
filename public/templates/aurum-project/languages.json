@@ -1,0 +1,6 @@
+{
+  "name": "Aurum Project",
+  "description": "Template premium de landing page con TanStack Start, React 19, Tailwind CSS v4 y componentes shadcn/ui con animaciones GSAP.",
+  "language": "React",
+  "technologies": ["React 19", "TanStack Start", "TanStack Router", "TanStack Query", "Tailwind CSS", "shadcn/ui", "GSAP", "Lenis"]
+}
