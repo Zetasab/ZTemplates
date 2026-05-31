@@ -66,6 +66,11 @@
     "/^node scripts/generate-templates\\.js$/": {
       "approve": true,
       "matchCommandLine": true
-    }
+    },
+    "git ls-remote": true,
+    "git fetch": true,
+    "New-Item": true,
+    "Out-Null": true,
+    "Out-File": true
   }
 }
