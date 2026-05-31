@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+﻿name: Deploy to GitHub Pages
 
 on:
   push:
@@ -59,8 +59,7 @@ jobs:
         run: npm ci
 
       - name: Build Angular app
-        # Cambia 'ZTemplates' por el nombre exacto de tu repositorio en GitHub
-        run: npm run build -- --base-href /ZTemplates/
+        run: npm run build
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
