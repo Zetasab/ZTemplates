@@ -1,7 +1,8 @@
-import { Component, signal, OnInit } from '@angular/core';
+import { Component, signal, OnInit, OnDestroy, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { trigger, style, transition, animate, query, stagger, keyframes } from '@angular/animations';
 import { ButtonModule } from 'primeng/button';
+import { TemplateTrackingService, TemplateVisitType } from './services/template-tracking.service';
 
 interface TemplateItem {
   id: string;
@@ -74,12 +75,34 @@ interface TemplateItem {
     ])
   ]
 })
-export class App implements OnInit {
+export class App implements OnInit, OnDestroy {
+  private readonly tracking = inject(TemplateTrackingService);
+  private visitTracked = false;
+  private readonly onUserInteraction = () => {
+    if (!this.visitTracked) {
+      this.visitTracked = true;
+      this.tracking.track('ztemplates-web', TemplateVisitType.Visit).subscribe();
+      this.removeInteractionListeners();
+    }
+  };
+  private readonly interactionEvents = ['scroll', 'touchstart'] as const;
+
+  private removeInteractionListeners() {
+    this.interactionEvents.forEach(event =>
+      document.removeEventListener(event, this.onUserInteraction)
+    );
+  }
+
   protected readonly title = signal('ZTemplates');
   templates = signal<TemplateItem[]>([]);
   hoveredCard = signal<string | null>(null);
 
   async ngOnInit() {
+    setTimeout(() => {
+      this.interactionEvents.forEach(event =>
+        document.addEventListener(event, this.onUserInteraction, { passive: true })
+      );
+    }, 1500);
     try {
       const response = await fetch('/templates.json');
       if (response.ok) {
@@ -95,11 +118,21 @@ export class App implements OnInit {
     this.hoveredCard.set(id);
   }
 
+  ngOnDestroy() {
+    this.removeInteractionListeners();
+  }
+
+  viewDemo(path: string, name: string) {
+    this.tracking.track(name, TemplateVisitType.Visit).subscribe();
+    window.open(path, '_blank');
+  }
+
   downloadTemplate(zipPath: string | undefined, name: string) {
     if (!zipPath) {
       alert(`No se encontró descarga.zip en la raíz del proyecto "${name}".`);
       return;
     }
+    this.tracking.track(name, TemplateVisitType.Download).subscribe();
     const a = document.createElement('a');
     a.href = zipPath;
     a.download = `${name}.zip`;

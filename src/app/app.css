@@ -575,13 +575,31 @@
     top: 0.75rem;
     left: 0.75rem;
     padding: 0.25rem 0.7rem;
-    background: rgba(97, 218, 251, 0.15);
-    border: 1px solid rgba(97, 218, 251, 0.3);
+    background: rgba(148, 163, 184, 0.15);
+    border: 1px solid rgba(148, 163, 184, 0.3);
     border-radius: 6px;
     font-size: 0.72rem;
     font-weight: 600;
-    color: #61dafb;
+    color: #94a3b8;
     letter-spacing: 0.04em;
+}
+
+.card-tag--react {
+    background: rgba(97, 218, 251, 0.15);
+    border-color: rgba(97, 218, 251, 0.3);
+    color: #61dafb;
+}
+
+.card-tag--angular {
+    background: rgba(221, 0, 49, 0.15);
+    border-color: rgba(221, 0, 49, 0.35);
+    color: #ff6b81;
+}
+
+.card-tag--javascript {
+    background: rgba(245, 158, 11, 0.15);
+    border-color: rgba(245, 158, 11, 0.3);
+    color: #fbbf24;
 }
 
 /* Body */
@@ -611,6 +629,10 @@
     text-transform: uppercase;
     letter-spacing: 0.06em;
 }
+
+.card-category--react     { color: #61dafb; }
+.card-category--angular   { color: #ff6b81; }
+.card-category--javascript { color: #fbbf24; }
 
 .card-title {
     font-size: 1.2rem;
