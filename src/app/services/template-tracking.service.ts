@@ -13,7 +13,7 @@ export class TemplateTrackingService {
   private readonly baseUrl = environment.apiUrl;
 
   track(name: string = 'default', type: TemplateVisitType = TemplateVisitType.Visit): void {
-    const url = `${this.baseUrl}/api/TemplateVisits/track?name=${encodeURIComponent(name)}&type=${encodeURIComponent(type)}`;
+    const url = `${this.baseUrl}/api/TemplateVisits/register?name=${encodeURIComponent(name)}&type=${encodeURIComponent(type)}`;
     fetch(url, { method: 'POST' }).catch(() => {});
   }
 }
