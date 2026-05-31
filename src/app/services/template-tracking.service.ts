@@ -1,6 +1,7 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 
 export enum TemplateVisitType {
@@ -20,6 +21,8 @@ export class TemplateTrackingService {
       .set('name', name)
       .set('type', type);
 
-    return this.http.post<{ message: string }>(`${this.baseUrl}/api/TemplateVisits/track`, null, { params });
+    return this.http.post<{ message: string }>(`${this.baseUrl}/api/TemplateVisits/track`, null, { params }).pipe(
+      catchError(() => of({ message: 'blocked' }))
+    );
   }
 }
