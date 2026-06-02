@@ -77,12 +77,17 @@ function fixReactPaths(dirPath) {
         relativeBase = 'index.html';
     }
 
-    if (fs.existsSync(indexPath)) {
-        let content = fs.readFileSync(indexPath, 'utf-8');
-        // Convierte las rutas absolutas (src="/assets/...") a relativas
-        content = content.replace(/(href|src)=["']\/([^"']+)["']/g, '$1="./$2"');
-        fs.writeFileSync(indexPath, content, 'utf-8');
+    if (!fs.existsSync(indexPath)) {
+        // No valid index.html found anywhere — project likely not built yet
+        const name = path.basename(dirPath);
+        console.warn(`  ⚠ Skipping "${name}": no built index.html found. Run the project's build first.`);
+        return null;
     }
+
+    let content = fs.readFileSync(indexPath, 'utf-8');
+    // Convierte las rutas absolutas (src="/assets/...") a relativas
+    content = content.replace(/(href|src)=["']\/([^"']+)["']/g, '$1="./$2"');
+    fs.writeFileSync(indexPath, content, 'utf-8');
     return relativeBase;
 }
 
@@ -99,6 +104,7 @@ function generateTemplatesJson() {
             
             // Reparar automáticamente el index.html en dist/ u otro sitio y obtener la ruta en la que reside.
             const relativeHtmlPath = fixReactPaths(templatePath);
+            if (relativeHtmlPath === null) return null;
 
             let imagePath = null;
             if (fs.existsSync(path.join(templatePath, 'portada.png'))) {
@@ -139,7 +145,8 @@ function generateTemplatesJson() {
                 gifPath: gifPath,
                 zipPath: zipPath
             };
-        });
+        })
+        .filter(Boolean);
 
     fs.writeFileSync(outputFile, JSON.stringify(templates, null, 2));
     console.log(`Generated templates.json with ${templates.length} templates.`);
