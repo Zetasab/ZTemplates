@@ -10,7 +10,7 @@
       "Lenis",
       "Vite"
     ],
-    "path": "https://animation3d.cesarsobrino.es/",
+    "path": "templates/Animations3d/dist/index.html",
     "downloadPath": "templates/Animations3d",
     "imagePath": "templates/Animations3d/portada.png",
     "gifPath": "templates/Animations3d/portada_gif.gif",
@@ -57,6 +57,27 @@
     "imagePath": "templates/aurum-project/portada.png",
     "gifPath": "templates/aurum-project/portada_gif.gif",
     "zipPath": "templates/aurum-project/descarga.zip"
+  },
+  {
+    "id": "fontaneria",
+    "name": "Fontaneria",
+    "description": "Template full-stack con TanStack Start, React 19, shadcn/ui y animaciones premium con GSAP y Lenis.",
+    "language": "React",
+    "technologies": [
+      "React 19",
+      "TanStack Start",
+      "TanStack Router",
+      "TanStack Query",
+      "Tailwind CSS",
+      "shadcn/ui",
+      "GSAP",
+      "Lenis"
+    ],
+    "path": "templates/fontaneria/dist/client/index.html",
+    "downloadPath": "templates/fontaneria",
+    "imagePath": "templates/fontaneria/portada.png",
+    "gifPath": "templates/fontaneria/portada_gif.gif",
+    "zipPath": null
   },
   {
     "id": "kicks-lab-project",
@@ -117,5 +138,26 @@
     "imagePath": "templates/portfolio-proyecto/portada.png",
     "gifPath": "templates/portfolio-proyecto/portada_gif.gif",
     "zipPath": "templates/portfolio-proyecto/descarga.zip"
+  },
+  {
+    "id": "xforge-project",
+    "name": "XForge",
+    "description": "Template full-stack con TanStack Start, React 19, shadcn/ui y animaciones premium con GSAP y Lenis.",
+    "language": "React",
+    "technologies": [
+      "React 19",
+      "TanStack Start",
+      "TanStack Router",
+      "TanStack Query",
+      "Tailwind CSS",
+      "shadcn/ui",
+      "GSAP",
+      "Lenis"
+    ],
+    "path": "templates/xforge-project/dist/client/index.html",
+    "downloadPath": "templates/xforge-project",
+    "imagePath": "templates/xforge-project/portada.png",
+    "gifPath": "templates/xforge-project/portada_gif.gif",
+    "zipPath": "templates/xforge-project/descarga.zip"
   }
 ]
