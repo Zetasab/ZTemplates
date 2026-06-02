@@ -1,0 +1,6 @@
+{
+  "name": "Fontaneria",
+  "description": "Template full-stack con TanStack Start, React 19, shadcn/ui y animaciones premium con GSAP y Lenis.",
+  "language": "React",
+  "technologies": ["React 19", "TanStack Start", "TanStack Router", "TanStack Query", "Tailwind CSS", "shadcn/ui", "GSAP", "Lenis"]
+}
