@@ -77,7 +77,7 @@
     "downloadPath": "templates/fontaneria",
     "imagePath": "templates/fontaneria/portada.png",
     "gifPath": "templates/fontaneria/portada_gif.gif",
-    "zipPath": null
+    "zipPath": "templates/fontaneria/descarga.zip"
   },
   {
     "id": "kicks-lab-project",
