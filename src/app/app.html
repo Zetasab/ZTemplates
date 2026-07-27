@@ -136,50 +136,67 @@
         </div>
     }
 
-    <div class="templates-grid">
-        @for (template of filteredTemplates(); track template.id) {
-            <article
-                class="card spotlight"
-                (mouseenter)="setHovered(template.id)"
-                (mouseleave)="setHovered(null)"
-                (mousemove)="onCardMove($event)">
+    <!-- Rail lateral de progreso: refuerza "un proyecto a la vez" -->
+    @if (filteredTemplates().length > 0) {
+        <div class="rail" aria-hidden="true">
+            <span class="rail-current">{{ padIndex(activeIndex() + 1) }}</span>
+            <span class="rail-track">
+                <span class="rail-fill" [style.height.%]="railProgress()"></span>
+            </span>
+            <span class="rail-total">{{ padIndex(filteredTemplates().length) }}</span>
+        </div>
+    }
 
-                <div class="card-thumb">
-                    @if (template.imagePath) {
-                        <img [src]="hoveredCard() === template.id && template.gifPath ? template.gifPath : template.imagePath"
-                             [alt]="template.name + ' — captura de pantalla'" class="card-img" loading="lazy" />
-                    } @else {
-                        <div class="card-img-placeholder">
-                            <div class="placeholder-pattern"></div>
-                            <span class="placeholder-name">{{ template.name }}</span>
-                        </div>
-                    }
-                    <span class="card-tag" [attr.data-lang]="(template.language ?? 'js') | lowercase">
-                        {{ template.language ?? 'JS' }}
-                    </span>
+    <div class="templates-list" #templatesList>
+        @for (template of filteredTemplates(); track template.id; let i = $index) {
+            <article
+                class="t-row"
+                [class.t-row--reverse]="i % 2 === 1"
+                [class.t-row--active]="activeIndex() === i"
+                [attr.data-row-index]="i"
+                (mouseenter)="setHovered(template.id)"
+                (mouseleave)="setHovered(null)">
+
+                <div class="t-media">
+                    <span class="t-media-index">{{ padIndex(i + 1) }}</span>
+                    <div class="t-media-frame">
+                        @if (template.imagePath) {
+                            <img [src]="hoveredCard() === template.id && template.gifPath ? template.gifPath : template.imagePath"
+                                 [alt]="template.name + ' — captura de pantalla'" class="t-media-img" loading="lazy" />
+                        } @else {
+                            <div class="t-media-placeholder" [attr.data-lang]="(template.language ?? 'js') | lowercase">
+                                <span class="t-media-placeholder-letter">{{ template.name.charAt(0) }}</span>
+                            </div>
+                        }
+                        <div class="t-media-scan"></div>
+                    </div>
                 </div>
 
-                <div class="card-body">
-                    <h3 class="card-title">{{ template.name }}</h3>
-                    <p class="card-desc">{{ template.description ?? 'Template listo para usar con las mejores prácticas de desarrollo moderno.' }}</p>
-
-                    <div class="card-chips">
-                        @for (tech of (template.technologies ?? []).slice(0, 4); track tech) {
-                            <span class="chip">{{ tech }}</span>
-                        }
-                        @if ((template.technologies ?? []).length > 4) {
-                            <span class="chip chip--muted">+{{ (template.technologies ?? []).length - 4 }}</span>
+                <div class="t-content">
+                    <div class="t-content-top">
+                        <span class="t-lang" [attr.data-lang]="(template.language ?? 'js') | lowercase">{{ template.language ?? 'JavaScript' }}</span>
+                        @if (!template.path) {
+                            <span class="t-status">Sin build</span>
                         }
                     </div>
 
-                    <div class="card-actions">
-                        <button class="card-btn card-btn--primary" [disabled]="!template.path" (click)="viewDemo(template.path, template.name)">
+                    <h3 class="t-title">{{ template.name }}</h3>
+                    <p class="t-desc">{{ template.description ?? 'Template listo para usar con las mejores prácticas de desarrollo moderno.' }}</p>
+
+                    <ul class="t-tech">
+                        @for (tech of (template.technologies ?? []); track tech) {
+                            <li>{{ tech }}</li>
+                        }
+                    </ul>
+
+                    <div class="t-actions">
+                        <button class="t-btn t-btn--primary magnetic" [disabled]="!template.path" (click)="viewDemo(template.path, template.name)">
                             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-                            {{ template.path ? 'Ver demo' : 'Sin build' }}
+                            {{ template.path ? 'Ver demo' : 'Sin build disponible' }}
                         </button>
-                        <button class="card-btn card-btn--secondary" (click)="downloadTemplate(template.zipPath, template.name)">
+                        <button class="t-btn t-btn--secondary magnetic" (click)="downloadTemplate(template.zipPath, template.name)">
                             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-                            Descargar
+                            Descargar .zip
                         </button>
                     </div>
                 </div>

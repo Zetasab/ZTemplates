@@ -1,4 +1,4 @@
-import { Component, signal, computed, OnInit, OnDestroy, AfterViewInit, ElementRef, ViewChild, inject } from '@angular/core';
+import { Component, signal, computed, effect, OnInit, AfterViewInit, OnDestroy, ElementRef, ViewChild, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ButtonModule } from 'primeng/button';
 import { TemplateTrackingService, TemplateVisitType } from './services/template-tracking.service';
@@ -50,6 +50,7 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
   protected readonly title = signal('ZTemplates');
   templates = signal<TemplateItem[]>([]);
   hoveredCard = signal<string | null>(null);
+  activeIndex = signal(0);
 
   query = signal('');
   activeFilter = signal('Todos');
@@ -73,8 +74,26 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
     });
   });
 
+  railProgress = computed(() => {
+    const total = this.filteredTemplates().length;
+    if (total <= 1) return 100;
+    return (this.activeIndex() / (total - 1)) * 100;
+  });
+
   private mouseMoveHandler?: (e: MouseEvent) => void;
-  private mediaQuery?: MediaQueryList;
+  private reducedMotion = false;
+  private viewReady = false;
+  private rowsCtx?: gsap.Context;
+
+  constructor() {
+    effect(() => {
+      // track dependency so re-runs on template list / filter changes
+      this.filteredTemplates();
+      if (!this.viewReady) return;
+      this.activeIndex.set(0);
+      setTimeout(() => this.initRowAnimations(), 0);
+    });
+  }
 
   async ngOnInit() {
     setTimeout(() => {
@@ -94,8 +113,10 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit() {
-    this.mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-    if (this.mediaQuery.matches) return;
+    this.reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    this.viewReady = true;
+
+    if (this.reducedMotion) return;
 
     // Hero title lines reveal
     gsap.fromTo(
@@ -110,7 +131,7 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
       { y: 0, opacity: 1, duration: 0.9, ease: 'power3.out', stagger: 0.1, delay: 0.35 }
     );
 
-    // Scroll-triggered reveals for everything below the fold
+    // Scroll-triggered reveals for static section chrome (header, toolbar, empty states)
     this.hostEl.nativeElement.querySelectorAll('.reveal-up').forEach((el: Element) => {
       if (el.closest('.hero')) return;
       gsap.fromTo(
@@ -126,17 +147,11 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
       );
     });
 
-    // Cards stagger in as grid mounts / filters change
-    ScrollTrigger.batch(this.hostEl.nativeElement.querySelectorAll('.card'), {
-      start: 'top 92%',
-      onEnter: (batch) =>
-        gsap.fromTo(
-          batch,
-          { y: 36, opacity: 0, scale: 0.97 },
-          { y: 0, opacity: 1, scale: 1, duration: 0.7, ease: 'power3.out', stagger: 0.08, overwrite: true }
-        ),
-      once: true,
-    });
+    // Template rows: each one gets its own reveal + parallax + active tracking
+    this.initRowAnimations();
+
+    // Images load asynchronously; recalc trigger positions once they've settled
+    window.addEventListener('load', () => ScrollTrigger.refresh());
 
     // Hero stack parallax on pointer move
     if (this.heroStack?.nativeElement && window.matchMedia('(pointer: fine)').matches) {
@@ -173,6 +188,82 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
     }
   }
 
+  /**
+   * Re-scopes GSAP triggers to the current set of `.t-row` elements. Called on
+   * mount and again whenever the filtered/search results change the DOM.
+   */
+  private initRowAnimations() {
+    this.rowsCtx?.revert();
+    if (this.reducedMotion) return;
+
+    const rows = Array.from(this.hostEl.nativeElement.querySelectorAll('.t-row')) as HTMLElement[];
+    if (!rows.length) return;
+
+    this.rowsCtx = gsap.context(() => {
+      rows.forEach((row, i) => {
+        const frame = row.querySelector('.t-media-frame');
+        const media = row.querySelector('.t-media-img, .t-media-placeholder');
+        const contentChildren = row.querySelectorAll('.t-content > *');
+        const index = row.querySelector('.t-media-index');
+
+        gsap.fromTo(
+          frame,
+          { clipPath: 'inset(14% 14% 14% 14% round 18px)', opacity: 0, scale: 1.08 },
+          {
+            clipPath: 'inset(0% 0% 0% 0% round 18px)',
+            opacity: 1,
+            scale: 1,
+            duration: 1.1,
+            ease: 'power3.out',
+            scrollTrigger: { trigger: row, start: 'top 78%' },
+          }
+        );
+
+        gsap.fromTo(
+          contentChildren,
+          { y: 26, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.7,
+            ease: 'power3.out',
+            stagger: 0.07,
+            scrollTrigger: { trigger: row, start: 'top 75%' },
+          }
+        );
+
+        if (index) {
+          gsap.fromTo(
+            index,
+            { opacity: 0, x: -10 },
+            { opacity: 1, x: 0, duration: 0.6, ease: 'power2.out', scrollTrigger: { trigger: row, start: 'top 80%' } }
+          );
+        }
+
+        if (media) {
+          gsap.to(media, {
+            yPercent: -7,
+            ease: 'none',
+            scrollTrigger: { trigger: row, start: 'top bottom', end: 'bottom top', scrub: 0.6 },
+          });
+        }
+
+        ScrollTrigger.create({
+          trigger: row,
+          start: 'top center',
+          end: 'bottom center',
+          onToggle: (self) => {
+            if (self.isActive) this.activeIndex.set(i);
+          },
+        });
+      });
+    }, this.hostEl.nativeElement);
+  }
+
+  padIndex(n: number): string {
+    return n < 10 ? `0${n}` : `${n}`;
+  }
+
   setHovered(id: string | null) {
     this.hoveredCard.set(id);
   }
@@ -185,18 +276,12 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
     this.activeFilter.set(value);
   }
 
-  onCardMove(event: MouseEvent) {
-    const card = event.currentTarget as HTMLElement;
-    const rect = card.getBoundingClientRect();
-    card.style.setProperty('--mx', `${event.clientX - rect.left}px`);
-    card.style.setProperty('--my', `${event.clientY - rect.top}px`);
-  }
-
   ngOnDestroy() {
     this.removeInteractionListeners();
     if (this.mouseMoveHandler) {
       window.removeEventListener('mousemove', this.mouseMoveHandler);
     }
+    this.rowsCtx?.revert();
     ScrollTrigger.getAll().forEach(st => st.kill());
   }
 
