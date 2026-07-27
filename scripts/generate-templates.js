@@ -104,7 +104,6 @@ function generateTemplatesJson() {
             
             // Reparar automáticamente el index.html en dist/ u otro sitio y obtener la ruta en la que reside.
             const relativeHtmlPath = fixReactPaths(templatePath);
-            if (relativeHtmlPath === null) return null;
 
             let imagePath = null;
             if (fs.existsSync(path.join(templatePath, 'portada.png'))) {
@@ -133,13 +132,17 @@ function generateTemplatesJson() {
                 }
             }
 
+            // Si no hay build pero sí hay zip, se incluye igual con path null
+            const hasAssets = zipPath || imagePath || gifPath || langData;
+            if (relativeHtmlPath === null && !hasAssets) return null;
+
             return {
                 id: entry.name,
                 name: langData?.name ?? entry.name.replace(/-/g, ' ').toUpperCase(),
                 description: langData?.description ?? null,
                 language: langData?.language ?? null,
                 technologies: langData?.technologies ?? [],
-                path: `templates/${entry.name}/${relativeHtmlPath}`,
+                path: relativeHtmlPath ? `templates/${entry.name}/${relativeHtmlPath}` : null,
                 downloadPath: `templates/${entry.name}`,
                 imagePath: imagePath,
                 gifPath: gifPath,

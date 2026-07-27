@@ -1,152 +1,181 @@
-﻿<!-- NAV -->
-<nav class="navbar" @heroIn>
+<!-- SKIP LINK -->
+<a class="skip-link" href="#templates">Saltar al contenido</a>
+
+<!-- NAV -->
+<nav class="navbar">
     <div class="nav-inner">
-        <div class="nav-logo">
-            <span class="logo-icon">⚡</span>
+        <a href="#top" class="nav-logo">
+            <span class="logo-mark">Z</span>
             <span class="logo-text">ZTemplates</span>
-        </div>
+        </a>
         <div class="nav-links">
             <a href="#templates" class="nav-link">Templates</a>
-            <a href="https://www.linkedin.com/in/cesar-sobrino-arribas-1b887021b/" target="_blank" class="nav-link">LinkedIn</a>
+            <a href="https://www.linkedin.com/in/cesar-sobrino-arribas-1b887021b/" target="_blank" rel="noopener" class="nav-link">LinkedIn</a>
             <a href="mailto:cesarsobrinoarribas@gmail.com" class="nav-link">Contacto</a>
-            <a href="https://github.com/Zetasab" target="_blank" class="nav-link">GitHub</a>
-            <a href="#templates" class="nav-cta">Explorar</a>
+            <a href="https://github.com/Zetasab" target="_blank" rel="noopener" class="nav-link">GitHub</a>
         </div>
+        <a href="#templates" class="nav-cta magnetic">
+            <span>Explorar</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
     </div>
 </nav>
 
 <!-- HERO -->
-<section class="hero">
-    <div class="hero-bg">
-        <div class="orb orb-1"></div>
-        <div class="orb orb-2"></div>
-        <div class="orb orb-3"></div>
-        <div class="grid-overlay"></div>
-    </div>
-    <div class="hero-content">
-        <div class="hero-badge" @badgeIn>
-            <span class="badge-dot"></span>
-            Portainer de Templates
+<section class="hero" id="top">
+    <div class="hero-grain"></div>
+    <div class="hero-inner">
+        <div class="hero-text">
+            <div class="hero-badge reveal-up">
+                <span class="badge-dot"></span>
+                {{ templates().length }} templates en producción
+            </div>
+            <h1 class="hero-title">
+                <span class="reveal-line"><span class="reveal-inner">Código que ya</span></span>
+                <span class="reveal-line"><span class="reveal-inner">funciona, listo</span></span>
+                <span class="reveal-line"><span class="reveal-inner">para <em>clonar</em>.</span></span>
+            </h1>
+            <p class="hero-subtitle reveal-up">
+                Una colección curada de proyectos reales — React, Angular y JavaScript —
+                previsualizables al instante y descargables en un click.
+            </p>
+            <div class="hero-actions reveal-up">
+                <a href="#templates" class="btn-primary magnetic">
+                    <span>Ver colección</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="https://github.com/Zetasab" target="_blank" rel="noopener" class="btn-ghost magnetic">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                    GitHub
+                </a>
+            </div>
         </div>
-        <h1 class="hero-title" @titleIn>
-            Lanza tus proyectos<br>
-            <span class="gradient-text"> con un click</span>
-        </h1>
-        <p class="hero-subtitle" @subtitleIn>
-            Explora, previsualiza y descarga templates listos para producción.
-            Diseños modernos, código limpio y fácil de personalizar.
-        </p>
-        <div class="hero-actions" @subtitleIn>
-            <a href="#templates" class="btn-primary">
-                <span>Ver Templates</span>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </a>
-            <a href="https://github.com/Zetasab" target="_blank" class="btn-ghost">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-                GitHub
-            </a>
-        </div>
-        <div class="hero-stats" @statsIn>
-            <div class="stat">
-                <span class="stat-number">{{ templates().length }}</span>
-                <span class="stat-label">Templates</span>
-            </div>
-            <div class="stat-divider"></div>
-            <div class="stat">
-                <span class="stat-number">100%</span>
-                <span class="stat-label">Gratuito</span>
-            </div>
-            <div class="stat-divider"></div>
-            <div class="stat">
-                <span class="stat-number">React</span>
-                <span class="stat-label">Framework</span>
-            </div>
+
+        <div class="hero-stack reveal-up" #heroStack>
+            @for (t of featuredPreviews(); track t.id; let i = $index) {
+                <div class="stack-card" [style.--i]="i">
+                    @if (t.imagePath) {
+                        <img [src]="t.imagePath" [alt]="t.name" loading="eager" />
+                    } @else {
+                        <div class="stack-card-empty"><span>{{ t.language ?? 'JS' }}</span></div>
+                    }
+                    <div class="stack-card-tag">{{ t.language ?? 'JS' }}</div>
+                </div>
+            }
+            <div class="stack-halo"></div>
         </div>
     </div>
-    <div class="hero-scroll-hint">
-        <span>Scroll</span>
-        <div class="scroll-arrow"></div>
+
+    <div class="hero-marquee" aria-hidden="true">
+        <div class="marquee-track">
+            @for (row of [1,2]; track row) {
+                <span>React</span><span class="dot">·</span>
+                <span>Angular</span><span class="dot">·</span>
+                <span>TanStack</span><span class="dot">·</span>
+                <span>Tailwind CSS</span><span class="dot">·</span>
+                <span>GSAP</span><span class="dot">·</span>
+                <span>shadcn/ui</span><span class="dot">·</span>
+                <span>Vite</span><span class="dot">·</span>
+            }
+        </div>
     </div>
 </section>
 
 <!-- TEMPLATES SECTION -->
 <section class="templates-section" id="templates">
-    <div class="section-header" @sectionIn>
+    <div class="section-header reveal-up">
         <div class="section-label">
             <span class="label-dot"></span>
             Colección
         </div>
-        <h2 class="section-title">
-            Templates Disponibles
-            <span class="count-badge">{{ templates().length }}</span>
-        </h2>
+        <div class="section-title-row">
+            <h2 class="section-title">Templates disponibles</h2>
+            <span class="count-badge">{{ filteredTemplates().length }} / {{ templates().length }}</span>
+        </div>
         <p class="section-desc">Todos los templates están prebuild y listos para abrirse en un click.</p>
     </div>
 
+    <div class="toolbar reveal-up">
+        <div class="search-field">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+            <input
+                type="text"
+                placeholder="Busca por nombre o tecnología…"
+                [value]="query()"
+                (input)="setQuery($any($event.target).value)"
+                aria-label="Buscar templates" />
+        </div>
+        <div class="filter-chips" role="group" aria-label="Filtrar por lenguaje">
+            @for (f of filters; track f) {
+                <button
+                    type="button"
+                    class="filter-chip"
+                    [class.filter-chip--active]="activeFilter() === f"
+                    (click)="setFilter(f)">
+                    {{ f }}
+                </button>
+            }
+        </div>
+    </div>
+
     @if (templates().length === 0) {
-        <div class="empty-state" @sectionIn>
-            <div class="empty-icon">📦</div>
+        <div class="empty-state reveal-up">
+            <div class="empty-icon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            </div>
             <h3>Sin templates todavía</h3>
-            <p>Añade proyectos React en <code>public/templates/</code> y ejecuta <code>npm start</code></p>
+            <p>Añade proyectos en <code>public/templates/</code> y ejecuta <code>npm start</code></p>
+        </div>
+    } @else if (filteredTemplates().length === 0) {
+        <div class="empty-state reveal-up">
+            <div class="empty-icon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+            </div>
+            <h3>No hay resultados para "{{ query() }}"</h3>
+            <p>Prueba con otra búsqueda o quita el filtro de lenguaje.</p>
         </div>
     }
 
-    <div class="templates-grid" [@gridAnimation]="templates().length">
-        @for (template of templates(); track template.id) {
-            <div class="card"
-                 [class.card--hovered]="hoveredCard() === template.id"
-                 (mouseenter)="setHovered(template.id)"
-                 (mouseleave)="setHovered(null)">
+    <div class="templates-grid">
+        @for (template of filteredTemplates(); track template.id) {
+            <article
+                class="card spotlight"
+                (mouseenter)="setHovered(template.id)"
+                (mouseleave)="setHovered(null)"
+                (mousemove)="onCardMove($event)">
 
-                <!-- Image / Preview -->
                 <div class="card-thumb">
                     @if (template.imagePath) {
                         <img [src]="hoveredCard() === template.id && template.gifPath ? template.gifPath : template.imagePath"
-                             [alt]="template.name" class="card-img" loading="lazy" />
+                             [alt]="template.name + ' — captura de pantalla'" class="card-img" loading="lazy" />
                     } @else {
                         <div class="card-img-placeholder">
                             <div class="placeholder-pattern"></div>
-                            <div class="placeholder-icon">
-                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.4"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-                            </div>
+                            <span class="placeholder-name">{{ template.name }}</span>
                         </div>
-                        
                     }
-                    <div class="card-tag"
-                         [class.card-tag--react]="template.language?.toLowerCase() === 'react'"
-                         [class.card-tag--angular]="template.language?.toLowerCase() === 'angular'"
-                         [class.card-tag--javascript]="template.language?.toLowerCase() === 'javascript'">
+                    <span class="card-tag" [attr.data-lang]="(template.language ?? 'js') | lowercase">
                         {{ template.language ?? 'JS' }}
-                    </div>
+                    </span>
                 </div>
 
-                <!-- Content -->
                 <div class="card-body">
-                    <div class="card-meta">
-                        <span class="card-framework-icon">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="#61dafb"><circle cx="12" cy="12" r="2.5"/><ellipse cx="12" cy="12" rx="10" ry="4" stroke="#61dafb" stroke-width="1.5" fill="none"/><ellipse cx="12" cy="12" rx="10" ry="4" stroke="#61dafb" stroke-width="1.5" fill="none" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4" stroke="#61dafb" stroke-width="1.5" fill="none" transform="rotate(120 12 12)"/></svg>
-                        </span>
-                        <span class="card-category"
-                              [class.card-category--react]="template.language?.toLowerCase() === 'react'"
-                              [class.card-category--angular]="template.language?.toLowerCase() === 'angular'"
-                              [class.card-category--javascript]="template.language?.toLowerCase() === 'javascript'">
-                            {{ template.language ?? 'JavaScript' }}
-                        </span>
-                    </div>
-
                     <h3 class="card-title">{{ template.name }}</h3>
                     <p class="card-desc">{{ template.description ?? 'Template listo para usar con las mejores prácticas de desarrollo moderno.' }}</p>
 
                     <div class="card-chips">
-                        @for (tech of (template.technologies ?? []); track tech) {
+                        @for (tech of (template.technologies ?? []).slice(0, 4); track tech) {
                             <span class="chip">{{ tech }}</span>
+                        }
+                        @if ((template.technologies ?? []).length > 4) {
+                            <span class="chip chip--muted">+{{ (template.technologies ?? []).length - 4 }}</span>
                         }
                     </div>
 
                     <div class="card-actions">
-                        <button class="card-btn card-btn--primary" (click)="viewDemo(template.path, template.name)">
+                        <button class="card-btn card-btn--primary" [disabled]="!template.path" (click)="viewDemo(template.path, template.name)">
                             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-                            Ver Demo
+                            {{ template.path ? 'Ver demo' : 'Sin build' }}
                         </button>
                         <button class="card-btn card-btn--secondary" (click)="downloadTemplate(template.zipPath, template.name)">
                             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
@@ -154,14 +183,14 @@
                         </button>
                     </div>
                 </div>
-            </div>
+            </article>
         }
     </div>
 </section>
 
 <!-- PAYPAL DONATION BUTTON -->
-<a class="paypal-fab" href="https://paypal.me/cesarsobrinoarribas?country.x=ES&locale.x=es_ES" target="_blank" rel="noopener noreferrer" aria-label="Donar con PayPal">
-    <span class="paypal-tooltip">¿Te gusta? ¡Puedes colaborar conmigo! ☕</span>
+<a class="paypal-fab magnetic" href="https://paypal.me/cesarsobrinoarribas?country.x=ES&locale.x=es_ES" target="_blank" rel="noopener noreferrer" aria-label="Donar con PayPal">
+    <span class="paypal-tooltip">¿Te gusta? Puedes colaborar conmigo</span>
     <span class="paypal-ripple"></span>
     <svg class="paypal-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
         <path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287-.023.143-.047.288-.077.437-.983 5.05-4.349 6.797-8.647 6.797h-2.19c-.524 0-.968.382-1.05.9l-1.12 7.106zm14.146-14.42a3.35 3.35 0 0 0-.607-.541c-.013.076-.026.175-.041.254-.93 4.778-4.005 7.201-9.138 7.201h-2.19a.563.563 0 0 0-.556.479l-1.187 7.527h-.506l-.24 1.516a.56.56 0 0 0 .554.647h3.882c.46 0 .85-.334.922-.788.06-.26.76-4.852.816-5.09a.932.932 0 0 1 .923-.788h.58c3.76 0 6.705-1.528 7.565-5.946.36-1.847.174-3.388-.777-4.471z"/>
@@ -171,14 +200,17 @@
 <!-- FOOTER -->
 <footer class="footer">
     <div class="footer-inner">
-        <div class="footer-logo">
-            <span class="logo-icon">⚡</span>
-            <span>ZTemplates</span>
+        <div class="footer-brand">
+            <div class="footer-logo">
+                <span class="logo-mark">Z</span>
+                <span>ZTemplates</span>
+            </div>
+            <p class="footer-copy">Hecho con Angular + PrimeNG. Templates listos para desplegar.</p>
         </div>
-        <p class="footer-copy">Hecho con Angular + PrimeNG · Templates listos para desplegar.</p>
         <div class="footer-links">
             <a href="#templates">Templates</a>
-            <a href="https://react.dev" target="_blank">React Docs</a>
+            <a href="https://github.com/Zetasab" target="_blank" rel="noopener">GitHub</a>
+            <a href="mailto:cesarsobrinoarribas@gmail.com">Contacto</a>
         </div>
     </div>
 </footer>

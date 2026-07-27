@@ -1,5 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
 
+:root {
+  --ink: #0c0b09;
+  --ink-raised: #131210;
+  --paper: #f4f1ea;
+  --line: rgba(244, 241, 234, 0.09);
+  --line-strong: rgba(244, 241, 234, 0.18);
+  --text: #ece8de;
+  --text-dim: rgba(236, 232, 222, 0.56);
+  --text-faint: rgba(236, 232, 222, 0.32);
+  --accent: #c8ff5c;
+  --accent-dim: rgba(200, 255, 92, 0.14);
+  --accent-ink: #10230a;
+  --font-display: 'Space Grotesk', 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', monospace;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
 *,
 *::before,
 *::after {
@@ -10,30 +28,58 @@
 
 html {
   scroll-behavior: smooth;
+  color-scheme: dark;
 }
 
 body {
-  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-  background: #0a0a0f;
-  color: #e2e8f0;
+  font-family: var(--font-body);
+  background: var(--ink);
+  color: var(--text);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-wrap: pretty;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 999;
+  opacity: 0.035;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+a {
+  color: inherit;
 }
 
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #0a0a0f;
+  background: var(--ink);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #6366f1;
-  border-radius: 3px;
+  background: var(--line-strong);
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #818cf8;
+  background: var(--accent);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
 }

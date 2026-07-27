@@ -59,6 +59,30 @@
     "zipPath": "templates/aurum-project/descarga.zip"
   },
   {
+    "id": "dachshund-project",
+    "name": "DACHSHUND PROJECT",
+    "description": null,
+    "language": null,
+    "technologies": [],
+    "path": "templates/dachshund-project/dist/client/index.html",
+    "downloadPath": "templates/dachshund-project",
+    "imagePath": null,
+    "gifPath": null,
+    "zipPath": "templates/dachshund-project/descarga.zip"
+  },
+  {
+    "id": "ember-gaming-chairs",
+    "name": "EMBER GAMING CHAIRS",
+    "description": null,
+    "language": null,
+    "technologies": [],
+    "path": "templates/ember-gaming-chairs/dist/client/index.html",
+    "downloadPath": "templates/ember-gaming-chairs",
+    "imagePath": null,
+    "gifPath": null,
+    "zipPath": "templates/ember-gaming-chairs/descarga.zip"
+  },
+  {
     "id": "fontaneria",
     "name": "Fontaneria",
     "description": "Template full-stack con TanStack Start, React 19, shadcn/ui y animaciones premium con GSAP y Lenis.",
@@ -80,6 +104,30 @@
     "zipPath": "templates/fontaneria/descarga.zip"
   },
   {
+    "id": "hojas-de-autor",
+    "name": "HOJAS DE AUTOR",
+    "description": null,
+    "language": null,
+    "technologies": [],
+    "path": "templates/hojas-de-autor/dist/client/index.html",
+    "downloadPath": "templates/hojas-de-autor",
+    "imagePath": null,
+    "gifPath": null,
+    "zipPath": "templates/hojas-de-autor/descarga.zip"
+  },
+  {
+    "id": "horologe-project",
+    "name": "HOROLOGE PROJECT",
+    "description": null,
+    "language": null,
+    "technologies": [],
+    "path": "templates/horologe-project/dist/client/index.html",
+    "downloadPath": "templates/horologe-project",
+    "imagePath": null,
+    "gifPath": null,
+    "zipPath": "templates/horologe-project/descarga.zip"
+  },
+  {
     "id": "kicks-lab-project",
     "name": "Kicks Lab",
     "description": "Template e-commerce de zapatillas con catálogo interactivo, filtros y diseño moderno sobre TanStack Start y React 19.",
@@ -98,6 +146,30 @@
     "imagePath": "templates/kicks-lab-project/portada.png",
     "gifPath": "templates/kicks-lab-project/portada_gif.gif",
     "zipPath": "templates/kicks-lab-project/descarga.zip"
+  },
+  {
+    "id": "kuro-omakase",
+    "name": "KURO OMAKASE",
+    "description": null,
+    "language": null,
+    "technologies": [],
+    "path": null,
+    "downloadPath": "templates/kuro-omakase",
+    "imagePath": null,
+    "gifPath": null,
+    "zipPath": "templates/kuro-omakase/descarga.zip"
+  },
+  {
+    "id": "maurie-project",
+    "name": "MAURIE PROJECT",
+    "description": null,
+    "language": null,
+    "technologies": [],
+    "path": "templates/maurie-project/dist/client/index.html",
+    "downloadPath": "templates/maurie-project",
+    "imagePath": null,
+    "gifPath": null,
+    "zipPath": "templates/maurie-project/descarga.zip"
   },
   {
     "id": "pharmamodern-project",

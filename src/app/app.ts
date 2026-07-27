@@ -1,8 +1,11 @@
-import { Component, signal, OnInit, OnDestroy, inject } from '@angular/core';
+import { Component, signal, computed, OnInit, OnDestroy, AfterViewInit, ElementRef, ViewChild, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { trigger, style, transition, animate, query, stagger, keyframes } from '@angular/animations';
 import { ButtonModule } from 'primeng/button';
 import { TemplateTrackingService, TemplateVisitType } from './services/template-tracking.service';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 interface TemplateItem {
   id: string;
@@ -10,7 +13,7 @@ interface TemplateItem {
   description?: string;
   language?: string;
   technologies?: string[];
-  path: string;
+  path: string | null;
   downloadPath: string;
   imagePath?: string;
   gifPath?: string;
@@ -22,61 +25,12 @@ interface TemplateItem {
   imports: [CommonModule, ButtonModule],
   templateUrl: './app.html',
   styleUrl: './app.css',
-  animations: [
-    trigger('heroIn', [
-      transition(':enter', [
-        style({ opacity: 0, transform: 'translateY(60px) scale(0.95)' }),
-        animate('1s cubic-bezier(0.16, 1, 0.3, 1)', style({ opacity: 1, transform: 'translateY(0) scale(1)' }))
-      ])
-    ]),
-    trigger('titleIn', [
-      transition(':enter', [
-        style({ opacity: 0, transform: 'translateY(40px)' }),
-        animate('1.1s 200ms cubic-bezier(0.16, 1, 0.3, 1)', style({ opacity: 1, transform: 'translateY(0)' }))
-      ])
-    ]),
-    trigger('subtitleIn', [
-      transition(':enter', [
-        style({ opacity: 0, transform: 'translateY(30px)' }),
-        animate('1s 400ms cubic-bezier(0.16, 1, 0.3, 1)', style({ opacity: 1, transform: 'translateY(0)' }))
-      ])
-    ]),
-    trigger('badgeIn', [
-      transition(':enter', [
-        style({ opacity: 0, transform: 'scale(0.8)' }),
-        animate('0.6s 100ms cubic-bezier(0.34, 1.56, 0.64, 1)', style({ opacity: 1, transform: 'scale(1)' }))
-      ])
-    ]),
-    trigger('statsIn', [
-      transition(':enter', [
-        style({ opacity: 0, transform: 'translateY(20px)' }),
-        animate('0.8s 600ms cubic-bezier(0.16, 1, 0.3, 1)', style({ opacity: 1, transform: 'translateY(0)' }))
-      ])
-    ]),
-    trigger('sectionIn', [
-      transition(':enter', [
-        style({ opacity: 0, transform: 'translateY(30px)' }),
-        animate('0.8s cubic-bezier(0.16, 1, 0.3, 1)', style({ opacity: 1, transform: 'translateY(0)' }))
-      ])
-    ]),
-    trigger('gridAnimation', [
-      transition('* => *', [
-        query(':enter', [
-          style({ opacity: 0, transform: 'translateY(40px) scale(0.92)' }),
-          stagger(120, [
-            animate('0.7s cubic-bezier(0.16, 1, 0.3, 1)', keyframes([
-              style({ opacity: 0, transform: 'translateY(40px) scale(0.92)', offset: 0 }),
-              style({ opacity: 0.6, transform: 'translateY(-8px) scale(1.02)', offset: 0.7 }),
-              style({ opacity: 1, transform: 'translateY(0) scale(1)', offset: 1 })
-            ]))
-          ])
-        ], { optional: true })
-      ])
-    ])
-  ]
 })
-export class App implements OnInit, OnDestroy {
+export class App implements OnInit, AfterViewInit, OnDestroy {
   private readonly tracking = inject(TemplateTrackingService);
+  private readonly hostEl = inject(ElementRef<HTMLElement>);
+  @ViewChild('heroStack') heroStack?: ElementRef<HTMLElement>;
+
   private visitTracked = false;
   private readonly onUserInteraction = () => {
     if (!this.visitTracked) {
@@ -97,6 +51,31 @@ export class App implements OnInit, OnDestroy {
   templates = signal<TemplateItem[]>([]);
   hoveredCard = signal<string | null>(null);
 
+  query = signal('');
+  activeFilter = signal('Todos');
+  readonly filters = ['Todos', 'React', 'Angular', 'JavaScript'];
+
+  featuredPreviews = computed(() =>
+    this.templates()
+      .filter(t => !!t.imagePath)
+      .slice(0, 3)
+  );
+
+  filteredTemplates = computed(() => {
+    const q = this.query().trim().toLowerCase();
+    const lang = this.activeFilter();
+    return this.templates().filter(t => {
+      const matchesLang = lang === 'Todos' || (t.language ?? '').toLowerCase() === lang.toLowerCase();
+      if (!matchesLang) return false;
+      if (!q) return true;
+      const haystack = [t.name, t.description ?? '', ...(t.technologies ?? [])].join(' ').toLowerCase();
+      return haystack.includes(q);
+    });
+  });
+
+  private mouseMoveHandler?: (e: MouseEvent) => void;
+  private mediaQuery?: MediaQueryList;
+
   async ngOnInit() {
     setTimeout(() => {
       this.interactionEvents.forEach(event =>
@@ -114,15 +93,115 @@ export class App implements OnInit, OnDestroy {
     }
   }
 
+  ngAfterViewInit() {
+    this.mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (this.mediaQuery.matches) return;
+
+    // Hero title lines reveal
+    gsap.fromTo(
+      this.hostEl.nativeElement.querySelectorAll('.reveal-inner'),
+      { yPercent: 110 },
+      { yPercent: 0, duration: 1, ease: 'expo.out', stagger: 0.08, delay: 0.1 }
+    );
+
+    gsap.fromTo(
+      this.hostEl.nativeElement.querySelectorAll('.hero-badge, .hero-subtitle, .hero-actions, .hero-stack'),
+      { y: 24, opacity: 0 },
+      { y: 0, opacity: 1, duration: 0.9, ease: 'power3.out', stagger: 0.1, delay: 0.35 }
+    );
+
+    // Scroll-triggered reveals for everything below the fold
+    this.hostEl.nativeElement.querySelectorAll('.reveal-up').forEach((el: Element) => {
+      if (el.closest('.hero')) return;
+      gsap.fromTo(
+        el,
+        { y: 32, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: 'power3.out',
+          scrollTrigger: { trigger: el, start: 'top 88%' },
+        }
+      );
+    });
+
+    // Cards stagger in as grid mounts / filters change
+    ScrollTrigger.batch(this.hostEl.nativeElement.querySelectorAll('.card'), {
+      start: 'top 92%',
+      onEnter: (batch) =>
+        gsap.fromTo(
+          batch,
+          { y: 36, opacity: 0, scale: 0.97 },
+          { y: 0, opacity: 1, scale: 1, duration: 0.7, ease: 'power3.out', stagger: 0.08, overwrite: true }
+        ),
+      once: true,
+    });
+
+    // Hero stack parallax on pointer move
+    if (this.heroStack?.nativeElement && window.matchMedia('(pointer: fine)').matches) {
+      const stack = this.heroStack.nativeElement;
+      this.mouseMoveHandler = (e: MouseEvent) => {
+        const rect = stack.getBoundingClientRect();
+        const relX = (e.clientX - rect.left - rect.width / 2) / rect.width;
+        const relY = (e.clientY - rect.top - rect.height / 2) / rect.height;
+        gsap.to(stack.querySelectorAll('.stack-card'), {
+          x: relX * 18,
+          y: relY * 18,
+          duration: 0.6,
+          ease: 'power2.out',
+          stagger: 0.02,
+        });
+      };
+      window.addEventListener('mousemove', this.mouseMoveHandler, { passive: true });
+    }
+
+    // Magnetic buttons
+    if (window.matchMedia('(pointer: fine)').matches) {
+      const magneticEls = this.hostEl.nativeElement.querySelectorAll('.magnetic') as NodeListOf<HTMLElement>;
+      magneticEls.forEach((btn: HTMLElement) => {
+        const move = (e: MouseEvent) => {
+          const rect = btn.getBoundingClientRect();
+          const x = e.clientX - rect.left - rect.width / 2;
+          const y = e.clientY - rect.top - rect.height / 2;
+          gsap.to(btn, { x: x * 0.28, y: y * 0.35, duration: 0.4, ease: 'power2.out' });
+        };
+        const leave = () => gsap.to(btn, { x: 0, y: 0, duration: 0.5, ease: 'elastic.out(1, 0.4)' });
+        btn.addEventListener('mousemove', move);
+        btn.addEventListener('mouseleave', leave);
+      });
+    }
+  }
+
   setHovered(id: string | null) {
     this.hoveredCard.set(id);
   }
 
-  ngOnDestroy() {
-    this.removeInteractionListeners();
+  setQuery(value: string) {
+    this.query.set(value);
   }
 
-  viewDemo(path: string, name: string) {
+  setFilter(value: string) {
+    this.activeFilter.set(value);
+  }
+
+  onCardMove(event: MouseEvent) {
+    const card = event.currentTarget as HTMLElement;
+    const rect = card.getBoundingClientRect();
+    card.style.setProperty('--mx', `${event.clientX - rect.left}px`);
+    card.style.setProperty('--my', `${event.clientY - rect.top}px`);
+  }
+
+  ngOnDestroy() {
+    this.removeInteractionListeners();
+    if (this.mouseMoveHandler) {
+      window.removeEventListener('mousemove', this.mouseMoveHandler);
+    }
+    ScrollTrigger.getAll().forEach(st => st.kill());
+  }
+
+  viewDemo(path: string | null, name: string) {
+    if (!path) return;
     this.tracking.track(name, TemplateVisitType.Visit);
     window.open(path, '_blank');
   }
