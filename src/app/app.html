@@ -136,15 +136,35 @@
         </div>
     }
 
-    <!-- Rail lateral de progreso: refuerza "un proyecto a la vez" -->
+    <!-- Rail lateral: indica en qué proyecto vas y permite saltar a uno directo -->
     @if (filteredTemplates().length > 0) {
-        <div class="rail" aria-hidden="true">
+        <nav class="rail" aria-label="Ir a un proyecto">
             <span class="rail-current">{{ padIndex(activeIndex() + 1) }}</span>
-            <span class="rail-track">
+
+            <div class="rail-track-wrap">
+                <span class="rail-track"></span>
                 <span class="rail-fill" [style.height.%]="railProgress()"></span>
-            </span>
+
+                <ol class="rail-list">
+                    @for (t of filteredTemplates(); track t.id; let i = $index) {
+                        <li>
+                            <button
+                                type="button"
+                                class="rail-item"
+                                [class.rail-item--active]="activeIndex() === i"
+                                (click)="scrollToIndex(i)"
+                                [attr.aria-current]="activeIndex() === i ? 'true' : null"
+                                [attr.aria-label]="'Ir a ' + t.name">
+                                <span class="rail-item-num">{{ padIndex(i + 1) }}</span>
+                                <span class="rail-item-label">{{ t.name }}</span>
+                            </button>
+                        </li>
+                    }
+                </ol>
+            </div>
+
             <span class="rail-total">{{ padIndex(filteredTemplates().length) }}</span>
-        </div>
+        </nav>
     }
 
     <div class="templates-list" #templatesList>
@@ -153,6 +173,7 @@
                 class="t-row"
                 [class.t-row--reverse]="i % 2 === 1"
                 [class.t-row--active]="activeIndex() === i"
+                [style.zIndex]="i + 1"
                 [attr.data-row-index]="i"
                 (mouseenter)="setHovered(template.id)"
                 (mouseleave)="setHovered(null)">

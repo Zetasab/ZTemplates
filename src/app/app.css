@@ -533,12 +533,12 @@
 }
 
 /* ============================================================
-   PROGRESS RAIL — refuerza "un proyecto a la vez"
+   PROGRESS RAIL — indicador + navegación directa por número
 ============================================================ */
 .rail {
     position: fixed;
     top: 50%;
-    right: 2rem;
+    right: 1.75rem;
     transform: translateY(-50%);
     z-index: 40;
     display: flex;
@@ -546,7 +546,7 @@
     align-items: center;
     gap: 0.6rem;
     font-family: var(--font-mono);
-    font-size: 0.72rem;
+    font-size: 0.68rem;
     color: var(--text-faint);
 }
 
@@ -555,23 +555,106 @@
     font-weight: 500;
 }
 
-.rail-track {
+.rail-track-wrap {
     position: relative;
+    display: flex;
+    max-height: 58vh;
+    overflow-y: auto;
+    overflow-x: visible;
+    scrollbar-width: none;
+    padding: 0.2rem 0;
+}
+
+.rail-track-wrap::-webkit-scrollbar {
+    display: none;
+}
+
+.rail-track,
+.rail-fill {
+    position: absolute;
+    left: 13px;
+    top: 0;
     width: 2px;
-    height: 120px;
-    background: var(--line-strong);
     border-radius: 2px;
-    overflow: hidden;
+}
+
+.rail-track {
+    height: 100%;
+    background: var(--line-strong);
 }
 
 .rail-fill {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
     background: var(--accent);
-    border-radius: 2px;
     transition: height 0.4s var(--ease);
+    pointer-events: none;
+}
+
+.rail-list {
+    position: relative;
+    z-index: 1;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    margin: 0;
+    padding: 0;
+}
+
+.rail-item {
+    position: relative;
+    width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--ink-raised);
+    border: 1px solid var(--line-strong);
+    border-radius: 50%;
+    color: var(--text-faint);
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    cursor: pointer;
+    transition: transform 0.25s var(--ease), background 0.25s, border-color 0.25s, color 0.25s;
+}
+
+.rail-item:hover {
+    border-color: var(--text-faint);
+    color: var(--text);
+    transform: scale(1.12);
+}
+
+.rail-item--active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--accent-ink);
+    font-weight: 700;
+    transform: scale(1.2);
+}
+
+.rail-item-label {
+    position: absolute;
+    right: calc(100% + 12px);
+    top: 50%;
+    transform: translateY(-50%) translateX(6px);
+    white-space: nowrap;
+    background: var(--ink-raised);
+    border: 1px solid var(--line-strong);
+    padding: 0.35rem 0.7rem;
+    border-radius: 8px;
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--text);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.25s var(--ease);
+    box-shadow: 0 8px 20px -8px rgba(0, 0, 0, 0.5);
+}
+
+.rail-item:hover .rail-item-label,
+.rail-item:focus-visible .rail-item-label {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
 }
 
 @media (max-width: 1180px) {
@@ -579,11 +662,15 @@
 }
 
 /* ============================================================
-   TEMPLATE ROWS — cada template es su propia escena
+   TEMPLATE ROWS — pila de escenas fijadas por scroll
+   Cada .t-row queda "pinned" (fixed) al llegar bajo el navbar y
+   permanece ahí hasta que la siguiente la cubre por completo —
+   una tarjeta a la vez, como cartas puestas sobre la mesa.
 ============================================================ */
 .templates-list {
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 .t-row {
@@ -591,13 +678,14 @@
     grid-template-columns: 1.05fr 0.95fr;
     gap: clamp(2rem, 5vw, 5rem);
     align-items: center;
-    padding: clamp(3rem, 8vw, 6.5rem) 0;
-    border-top: 1px solid var(--line);
+    min-height: 100vh;
+    padding: 5.5rem clamp(1.5rem, 4vw, 2.5rem) 3rem;
     position: relative;
-}
-
-.t-row:last-child {
-    border-bottom: 1px solid var(--line);
+    background: var(--ink);
+    border-top: 1px solid var(--line);
+    box-shadow: 0 -50px 90px -50px rgba(0, 0, 0, 0.7);
+    will-change: transform, opacity, filter;
+    transform-origin: center top;
 }
 
 .t-row--reverse {
@@ -634,9 +722,10 @@
 .t-media-frame {
     position: relative;
     aspect-ratio: 4 / 3;
+    max-height: 62vh;
     border-radius: 18px;
     overflow: hidden;
-    background: var(--ink);
+    background: var(--ink-raised);
     border: 1px solid var(--line);
     transition: border-color 0.4s var(--ease), box-shadow 0.4s var(--ease);
 }

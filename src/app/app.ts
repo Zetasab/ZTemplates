@@ -84,6 +84,7 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
   private reducedMotion = false;
   private viewReady = false;
   private rowsCtx?: gsap.Context;
+  private readonly navOffset = 76;
 
   constructor() {
     effect(() => {
@@ -191,6 +192,12 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
   /**
    * Re-scopes GSAP triggers to the current set of `.t-row` elements. Called on
    * mount and again whenever the filtered/search results change the DOM.
+   *
+   * Each row pins in place as it reaches the top of the viewport, and stays
+   * fixed there — like a card face-up on the table — while the next row
+   * scrolls up over it. As the next row arrives, the pinned one recedes
+   * (scales down + dims) so the stack reads as physical depth rather than a
+   * hard cut.
    */
   private initRowAnimations() {
     this.rowsCtx?.revert();
@@ -199,69 +206,92 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
     const rows = Array.from(this.hostEl.nativeElement.querySelectorAll('.t-row')) as HTMLElement[];
     if (!rows.length) return;
 
+    // Pinning a tall, single-column row on a short/narrow screen would clip
+    // its own content out of view while fixed. Below that breakpoint we keep
+    // the plain scroll-reveal and skip the stacking effect entirely.
+    const canPin = window.matchMedia('(min-width: 901px)').matches;
+    const navOffset = this.navOffset;
+
     this.rowsCtx = gsap.context(() => {
       rows.forEach((row, i) => {
-        const frame = row.querySelector('.t-media-frame');
-        const media = row.querySelector('.t-media-img, .t-media-placeholder');
-        const contentChildren = row.querySelectorAll('.t-content > *');
-        const index = row.querySelector('.t-media-index');
+        const contentChildren = row.querySelectorAll('.t-content > *, .t-media');
 
-        gsap.fromTo(
-          frame,
-          { clipPath: 'inset(14% 14% 14% 14% round 18px)', opacity: 0, scale: 1.08 },
-          {
-            clipPath: 'inset(0% 0% 0% 0% round 18px)',
-            opacity: 1,
-            scale: 1,
-            duration: 1.1,
-            ease: 'power3.out',
-            scrollTrigger: { trigger: row, start: 'top 78%' },
-          }
-        );
-
+        // First-arrival reveal: content lifts into place before the row locks in
         gsap.fromTo(
           contentChildren,
-          { y: 26, opacity: 0 },
+          { y: 40, opacity: 0 },
           {
             y: 0,
             opacity: 1,
-            duration: 0.7,
+            duration: 0.8,
             ease: 'power3.out',
-            stagger: 0.07,
-            scrollTrigger: { trigger: row, start: 'top 75%' },
+            stagger: 0.06,
+            scrollTrigger: { trigger: row, start: 'top 92%' },
           }
         );
 
-        if (index) {
-          gsap.fromTo(
-            index,
-            { opacity: 0, x: -10 },
-            { opacity: 1, x: 0, duration: 0.6, ease: 'power2.out', scrollTrigger: { trigger: row, start: 'top 80%' } }
-          );
-        }
-
-        if (media) {
-          gsap.to(media, {
-            yPercent: -7,
-            ease: 'none',
-            scrollTrigger: { trigger: row, start: 'top bottom', end: 'bottom top', scrub: 0.6 },
+        if (!canPin) {
+          ScrollTrigger.create({
+            trigger: row,
+            start: 'top center',
+            end: 'bottom center',
+            onToggle: (self) => {
+              if (self.isActive) this.activeIndex.set(i);
+            },
           });
+          return;
         }
 
+        // Pin the card flush under the navbar; unpins the instant the next
+        // card's leading edge reaches the same line, so the stack advances
+        // one card at a time with no dead scroll space.
         ScrollTrigger.create({
           trigger: row,
-          start: 'top center',
-          end: 'bottom center',
+          start: `top top+=${navOffset}`,
+          end: 'bottom top+=' + navOffset,
+          pin: true,
+          pinSpacing: false,
+          anticipatePin: 1,
           onToggle: (self) => {
             if (self.isActive) this.activeIndex.set(i);
           },
         });
+
+        // Recede as the next card arrives on top of it
+        const next = rows[i + 1];
+        if (next) {
+          gsap.to(row, {
+            scale: 0.94,
+            opacity: 0.45,
+            filter: 'blur(1.5px)',
+            ease: 'none',
+            transformOrigin: 'center top',
+            scrollTrigger: {
+              trigger: next,
+              start: 'top bottom',
+              end: `top top+=${navOffset}`,
+              scrub: true,
+            },
+          });
+        }
       });
     }, this.hostEl.nativeElement);
+
+    ScrollTrigger.refresh();
   }
 
   padIndex(n: number): string {
     return n < 10 ? `0${n}` : `${n}`;
+  }
+
+  /** Jumps the scroll position so the nth project lands right where it pins under the navbar. */
+  scrollToIndex(i: number) {
+    const rows = this.hostEl.nativeElement.querySelectorAll('.t-row');
+    const row = rows[i] as HTMLElement | undefined;
+    if (!row) return;
+    this.activeIndex.set(i);
+    const top = row.getBoundingClientRect().top + window.scrollY - this.navOffset;
+    window.scrollTo({ top, behavior: 'smooth' });
   }
 
   setHovered(id: string | null) {
