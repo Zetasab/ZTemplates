@@ -138,7 +138,9 @@
 
     <!-- Rail lateral: indica en qué proyecto vas y permite saltar a uno directo -->
     @if (filteredTemplates().length > 0) {
-        <nav class="rail" aria-label="Ir a un proyecto">
+        <nav class="rail" aria-label="Ir a un proyecto"
+            [style.--rail-item-size.px]="railItemSize()"
+            [style.--rail-gap.rem]="railGap()">
             <span class="rail-current">{{ padIndex(activeIndex() + 1) }}</span>
 
             <div class="rail-track-wrap">

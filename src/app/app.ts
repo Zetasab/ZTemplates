@@ -80,6 +80,19 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
     return (this.activeIndex() / (total - 1)) * 100;
   });
 
+  /** Shrinks the rail dots/gap as the list grows so all items fit without relying on a hidden scrollbar. */
+  railItemSize = computed(() => {
+    const total = this.filteredTemplates().length;
+    if (total <= 23) return 26;
+    return Math.max(14, Math.round(26 - (total - 23) * 0.7));
+  });
+
+  railGap = computed(() => {
+    const total = this.filteredTemplates().length;
+    if (total <= 23) return 0.4;
+    return Math.max(0.15, +(0.4 - (total - 23) * 0.015).toFixed(2));
+  });
+
   private mouseMoveHandler?: (e: MouseEvent) => void;
   private reducedMotion = false;
   private viewReady = false;
