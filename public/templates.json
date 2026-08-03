@@ -7,8 +7,8 @@
     "technologies": [],
     "path": "templates/aether-project/.output/public/index.html",
     "downloadPath": "templates/aether-project",
-    "imagePath": null,
-    "gifPath": null,
+    "imagePath": "templates/aether-project/portada.png",
+    "gifPath": "templates/aether-project/portada_gif.gif",
     "zipPath": "templates/aether-project/descarga.zip"
   },
   {
@@ -78,8 +78,8 @@
     "technologies": [],
     "path": "templates/dachshund-project/.output/public/index.html",
     "downloadPath": "templates/dachshund-project",
-    "imagePath": null,
-    "gifPath": null,
+    "imagePath": "templates/dachshund-project/portada.png",
+    "gifPath": "templates/dachshund-project/portada_gif.gif",
     "zipPath": "templates/dachshund-project/descarga.zip"
   },
   {
@@ -90,8 +90,8 @@
     "technologies": [],
     "path": "templates/ember-gaming-chairs/.output/public/index.html",
     "downloadPath": "templates/ember-gaming-chairs",
-    "imagePath": null,
-    "gifPath": null,
+    "imagePath": "templates/ember-gaming-chairs/portada.png",
+    "gifPath": "templates/ember-gaming-chairs/portada_gif.gif",
     "zipPath": "templates/ember-gaming-chairs/descarga.zip"
   },
   {
@@ -123,8 +123,8 @@
     "technologies": [],
     "path": "templates/friengess-project/.output/public/index.html",
     "downloadPath": "templates/friengess-project",
-    "imagePath": null,
-    "gifPath": null,
+    "imagePath": "templates/friengess-project/portada.png",
+    "gifPath": "templates/friengess-project/portada_gif.gif",
     "zipPath": "templates/friengess-project/descarga.zip"
   },
   {
@@ -135,8 +135,8 @@
     "technologies": [],
     "path": "templates/frikiforge/.output/public/index.html",
     "downloadPath": "templates/frikiforge",
-    "imagePath": null,
-    "gifPath": null,
+    "imagePath": "templates/frikiforge/portada.png",
+    "gifPath": "templates/frikiforge/portada_gif.gif",
     "zipPath": "templates/frikiforge/descarga.zip"
   },
   {
@@ -147,8 +147,8 @@
     "technologies": [],
     "path": "templates/hojas-de-autor/.output/public/index.html",
     "downloadPath": "templates/hojas-de-autor",
-    "imagePath": null,
-    "gifPath": null,
+    "imagePath": "templates/hojas-de-autor/portada.png",
+    "gifPath": "templates/hojas-de-autor/portada_gif.gif",
     "zipPath": "templates/hojas-de-autor/descarga.zip"
   },
   {
@@ -159,8 +159,8 @@
     "technologies": [],
     "path": "templates/horologe-project/.output/public/index.html",
     "downloadPath": "templates/horologe-project",
-    "imagePath": null,
-    "gifPath": null,
+    "imagePath": "templates/horologe-project/portada.png",
+    "gifPath": "templates/horologe-project/portada_gif.gif",
     "zipPath": "templates/horologe-project/descarga.zip"
   },
   {
@@ -191,8 +191,8 @@
     "technologies": [],
     "path": "templates/kryo-lab-project/.output/public/index.html",
     "downloadPath": "templates/kryo-lab-project",
-    "imagePath": null,
-    "gifPath": null,
+    "imagePath": "templates/kryo-lab-project/portada.png",
+    "gifPath": "templates/kryo-lab-project/portada_gif.gif",
     "zipPath": "templates/kryo-lab-project/descarga.zip"
   },
   {
@@ -203,8 +203,8 @@
     "technologies": [],
     "path": "templates/kuro-omakase/.output/public/index.html",
     "downloadPath": "templates/kuro-omakase",
-    "imagePath": null,
-    "gifPath": null,
+    "imagePath": "templates/kuro-omakase/portada.png",
+    "gifPath": "templates/kuro-omakase/portada_gif.gif",
     "zipPath": "templates/kuro-omakase/descarga.zip"
   },
   {
@@ -215,8 +215,8 @@
     "technologies": [],
     "path": "templates/la-vetrina-doro/.output/public/index.html",
     "downloadPath": "templates/la-vetrina-doro",
-    "imagePath": null,
-    "gifPath": null,
+    "imagePath": "templates/la-vetrina-doro/portada.png",
+    "gifPath": "templates/la-vetrina-doro/portada_gif.gif",
     "zipPath": "templates/la-vetrina-doro/descarga.zip"
   },
   {
@@ -227,8 +227,8 @@
     "technologies": [],
     "path": "templates/maurie-project/.output/public/index.html",
     "downloadPath": "templates/maurie-project",
-    "imagePath": null,
-    "gifPath": null,
+    "imagePath": "templates/maurie-project/portada.png",
+    "gifPath": "templates/maurie-project/portada_gif.gif",
     "zipPath": "templates/maurie-project/descarga.zip"
   },
   {
@@ -239,8 +239,8 @@
     "technologies": [],
     "path": "templates/neonic-proyecto/.output/public/index.html",
     "downloadPath": "templates/neonic-proyecto",
-    "imagePath": null,
-    "gifPath": null,
+    "imagePath": "templates/neonic-proyecto/portada.png",
+    "gifPath": "templates/neonic-proyecto/portada_gif.gif",
     "zipPath": "templates/neonic-proyecto/descarga.zip"
   },
   {
@@ -251,8 +251,8 @@
     "technologies": [],
     "path": "templates/ohenal/.output/public/index.html",
     "downloadPath": "templates/ohenal",
-    "imagePath": null,
-    "gifPath": null,
+    "imagePath": "templates/ohenal/portada.png",
+    "gifPath": "templates/ohenal/portada_gif.gif",
     "zipPath": "templates/ohenal/descarga.zip"
   },
   {
@@ -303,8 +303,8 @@
     "technologies": [],
     "path": "templates/project/.output/public/index.html",
     "downloadPath": "templates/project",
-    "imagePath": null,
-    "gifPath": null,
+    "imagePath": "templates/project/portada.png",
+    "gifPath": "templates/project/portada_gif.gif",
     "zipPath": "templates/project/descarga.zip"
   },
   {
@@ -315,8 +315,8 @@
     "technologies": [],
     "path": "templates/proyecto/.output/public/index.html",
     "downloadPath": "templates/proyecto",
-    "imagePath": null,
-    "gifPath": null,
+    "imagePath": "templates/proyecto/portada.png",
+    "gifPath": "templates/proyecto/portada_gif.gif",
     "zipPath": "templates/proyecto/descarga.zip"
   },
   {
@@ -327,8 +327,8 @@
     "technologies": [],
     "path": "templates/proyecto-azul/.output/public/index.html",
     "downloadPath": "templates/proyecto-azul",
-    "imagePath": null,
-    "gifPath": null,
+    "imagePath": "templates/proyecto-azul/portada.png",
+    "gifPath": "templates/proyecto-azul/portada_gif.gif",
     "zipPath": "templates/proyecto-azul/descarga.zip"
   },
   {
@@ -339,8 +339,8 @@
     "technologies": [],
     "path": "templates/proyecto-forma/.output/public/index.html",
     "downloadPath": "templates/proyecto-forma",
-    "imagePath": null,
-    "gifPath": null,
+    "imagePath": "templates/proyecto-forma/portada.png",
+    "gifPath": "templates/proyecto-forma/portada_gif.gif",
     "zipPath": "templates/proyecto-forma/descarga.zip"
   },
   {
@@ -351,8 +351,8 @@
     "technologies": [],
     "path": "templates/proyecto-grasa-gloria/.output/public/index.html",
     "downloadPath": "templates/proyecto-grasa-gloria",
-    "imagePath": null,
-    "gifPath": null,
+    "imagePath": "templates/proyecto-grasa-gloria/portada.png",
+    "gifPath": "templates/proyecto-grasa-gloria/portada_gif.gif",
     "zipPath": "templates/proyecto-grasa-gloria/descarga.zip"
   },
   {
@@ -363,8 +363,8 @@
     "technologies": [],
     "path": "templates/proyecto-mochilas/.output/public/index.html",
     "downloadPath": "templates/proyecto-mochilas",
-    "imagePath": null,
-    "gifPath": null,
+    "imagePath": "templates/proyecto-mochilas/portada.png",
+    "gifPath": "templates/proyecto-mochilas/portada_gif.gif",
     "zipPath": "templates/proyecto-mochilas/descarga.zip"
   },
   {
@@ -375,8 +375,8 @@
     "technologies": [],
     "path": "templates/proyecto-optika/.output/public/index.html",
     "downloadPath": "templates/proyecto-optika",
-    "imagePath": null,
-    "gifPath": null,
+    "imagePath": "templates/proyecto-optika/portada.png",
+    "gifPath": "templates/proyecto-optika/portada_gif.gif",
     "zipPath": "templates/proyecto-optika/descarga.zip"
   },
   {
@@ -387,8 +387,8 @@
     "technologies": [],
     "path": "templates/proyecto-sofas/.output/public/index.html",
     "downloadPath": "templates/proyecto-sofas",
-    "imagePath": null,
-    "gifPath": null,
+    "imagePath": "templates/proyecto-sofas/portada.png",
+    "gifPath": "templates/proyecto-sofas/portada_gif.gif",
     "zipPath": "templates/proyecto-sofas/descarga.zip"
   },
   {
@@ -399,8 +399,8 @@
     "technologies": [],
     "path": "templates/teviso-project/.output/public/index.html",
     "downloadPath": "templates/teviso-project",
-    "imagePath": null,
-    "gifPath": null,
+    "imagePath": "templates/teviso-project/portada.png",
+    "gifPath": "templates/teviso-project/portada_gif.gif",
     "zipPath": "templates/teviso-project/descarga.zip"
   },
   {
@@ -432,8 +432,8 @@
     "technologies": [],
     "path": "templates/Zenith/.output/public/index.html",
     "downloadPath": "templates/Zenith",
-    "imagePath": null,
-    "gifPath": null,
+    "imagePath": "templates/Zenith/portada.png",
+    "gifPath": "templates/Zenith/portada_gif.gif",
     "zipPath": "templates/Zenith/descarga.zip"
   }
 ]
