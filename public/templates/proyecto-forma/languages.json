@@ -1,6 +1,6 @@
 {
-  "name": "Aura",
-  "description": "E-commerce de botellas térmicas de acero inoxidable: tecnología de aislamiento, gama de colores y diseño minimalista premium.",
+  "name": "Forma",
+  "description": "Web de estudio de mobiliario: sillas de cocina esculturales, filosofía de diseño, colección en ocho tonos y espacios.",
   "language": "React",
   "technologies": [
     "React 19",
@@ -10,6 +10,7 @@
     "Tailwind CSS",
     "shadcn/ui",
     "TypeScript",
-    "GSAP"
+    "GSAP",
+    "Motion"
   ]
 }

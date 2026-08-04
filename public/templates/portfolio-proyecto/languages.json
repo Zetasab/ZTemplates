@@ -1,6 +1,16 @@
 {
-  "name": "Portfolio Proyecto",
-  "description": "Template de portfolio personal con React 18, Vite, Tailwind CSS, animaciones con Framer Motion y test suite con Vitest.",
+  "name": "Portfolio",
+  "description": "Portfolio personal con React 18, Vite, Tailwind CSS, animaciones con Framer Motion, tema claro/oscuro y test suite con Vitest.",
   "language": "React",
-  "technologies": ["React 18", "Vite", "Tailwind CSS", "shadcn/ui", "Framer Motion", "React Router", "TanStack Query", "Vitest"]
+  "technologies": [
+    "React 18",
+    "Vite",
+    "Tailwind CSS",
+    "shadcn/ui",
+    "Framer Motion",
+    "React Router",
+    "TanStack Query",
+    "Vitest",
+    "TypeScript"
+  ]
 }

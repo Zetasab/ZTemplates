@@ -1,6 +1,15 @@
 {
   "name": "Kicks Lab",
-  "description": "Template e-commerce de zapatillas con catálogo interactivo, filtros y diseño moderno sobre TanStack Start y React 19.",
+  "description": "E-commerce de sneakers con drops exclusivos: catálogo interactivo, modelos limitados y estética urbana y audaz.",
   "language": "React",
-  "technologies": ["React 19", "TanStack Start", "TanStack Router", "TanStack Query", "Tailwind CSS", "shadcn/ui", "GSAP"]
+  "technologies": [
+    "React 19",
+    "TanStack Start",
+    "TanStack Router",
+    "TanStack Query",
+    "Tailwind CSS",
+    "shadcn/ui",
+    "TypeScript",
+    "GSAP"
+  ]
 }

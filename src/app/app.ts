@@ -14,6 +14,7 @@ interface TemplateItem {
   language?: string;
   technologies?: string[];
   path: string | null;
+  externalUrl?: string | null;
   downloadPath: string;
   imagePath?: string;
   gifPath?: string;
@@ -328,10 +329,11 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
     ScrollTrigger.getAll().forEach(st => st.kill());
   }
 
-  viewDemo(path: string | null, name: string) {
-    if (!path) return;
-    this.tracking.track(name, TemplateVisitType.Visit);
-    window.open(path, '_blank');
+  viewDemo(template: TemplateItem) {
+    const url = template.externalUrl ?? template.path;
+    if (!url) return;
+    this.tracking.track(template.name, TemplateVisitType.Visit);
+    window.open(url, '_blank', 'noopener');
   }
 
   downloadTemplate(zipPath: string | undefined, name: string) {

@@ -1,6 +1,6 @@
 {
-  "name": "Aura",
-  "description": "E-commerce de botellas térmicas de acero inoxidable: tecnología de aislamiento, gama de colores y diseño minimalista premium.",
+  "name": "Ember Gaming Chairs",
+  "description": "E-commerce de sillas gaming de lujo: modelos destacados, configuración de producto y animaciones premium.",
   "language": "React",
   "technologies": [
     "React 19",
@@ -10,6 +10,7 @@
     "Tailwind CSS",
     "shadcn/ui",
     "TypeScript",
-    "GSAP"
+    "GSAP",
+    "Lenis"
   ]
 }

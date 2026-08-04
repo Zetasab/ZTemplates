@@ -1,6 +1,6 @@
 {
-  "name": "Aurum",
-  "description": "Landing de automoción de lujo: modelos, artesanía y especificaciones con animaciones cinematográficas y estética sofisticada.",
+  "name": "Friengess",
+  "description": "Landing de app de mensajería centrada en la privacidad: cifrado de extremo a extremo, notificaciones inteligentes y casos de uso.",
   "language": "React",
   "technologies": [
     "React 19",
@@ -11,6 +11,6 @@
     "shadcn/ui",
     "TypeScript",
     "GSAP",
-    "Lenis"
+    "Framer Motion"
   ]
 }

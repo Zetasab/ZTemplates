@@ -1,6 +1,6 @@
 {
-  "name": "Aura",
-  "description": "E-commerce de botellas térmicas de acero inoxidable: tecnología de aislamiento, gama de colores y diseño minimalista premium.",
+  "name": "Teviso",
+  "description": "Landing de televisores premium 8K: resolución, color, movimiento y modelos, con animaciones inmersivas y scroll suave.",
   "language": "React",
   "technologies": [
     "React 19",
@@ -10,6 +10,7 @@
     "Tailwind CSS",
     "shadcn/ui",
     "TypeScript",
-    "GSAP"
+    "GSAP",
+    "Lenis"
   ]
 }

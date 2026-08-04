@@ -198,7 +198,7 @@
                 <div class="t-content">
                     <div class="t-content-top">
                         <span class="t-lang" [attr.data-lang]="(template.language ?? 'js') | lowercase">{{ template.language ?? 'JavaScript' }}</span>
-                        @if (!template.path) {
+                        @if (!template.path && !template.externalUrl) {
                             <span class="t-status">Sin build</span>
                         }
                     </div>
@@ -213,9 +213,9 @@
                     </ul>
 
                     <div class="t-actions">
-                        <button class="t-btn t-btn--primary magnetic" [disabled]="!template.path" (click)="viewDemo(template.path, template.name)">
+                        <button class="t-btn t-btn--primary magnetic" [disabled]="!template.path && !template.externalUrl" (click)="viewDemo(template)">
                             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-                            {{ template.path ? 'Ver demo' : 'Sin build disponible' }}
+                            {{ template.path || template.externalUrl ? 'Ver demo' : 'Sin build disponible' }}
                         </button>
                         <button class="t-btn t-btn--secondary magnetic" (click)="downloadTemplate(template.zipPath, template.name)">
                             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>

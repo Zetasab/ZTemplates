@@ -1,6 +1,6 @@
 {
-  "name": "Aura",
-  "description": "E-commerce de botellas térmicas de acero inoxidable: tecnología de aislamiento, gama de colores y diseño minimalista premium.",
+  "name": "Kinetic",
+  "description": "Landing de editor de código con IA generativa: motor, inteligencia contextual, rendimiento nativo y precios.",
   "language": "React",
   "technologies": [
     "React 19",
@@ -10,6 +10,7 @@
     "Tailwind CSS",
     "shadcn/ui",
     "TypeScript",
-    "GSAP"
+    "GSAP",
+    "Framer Motion"
   ]
 }

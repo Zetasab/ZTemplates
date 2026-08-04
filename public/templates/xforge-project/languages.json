@@ -1,6 +1,15 @@
 {
-  "name": "XForge",
-  "description": "Template full-stack con TanStack Start, React 19, shadcn/ui y animaciones premium con GSAP y Lenis.",
+  "name": "X-Forge",
+  "description": "E-commerce de mandos Xbox personalizados de edición limitada: colección, artesanía y reservas con estética gamer premium.",
   "language": "React",
-  "technologies": ["React 19", "TanStack Start", "TanStack Router", "TanStack Query", "Tailwind CSS", "shadcn/ui", "GSAP", "Lenis"]
+  "technologies": [
+    "React 19",
+    "TanStack Start",
+    "TanStack Router",
+    "TanStack Query",
+    "Tailwind CSS",
+    "shadcn/ui",
+    "TypeScript",
+    "GSAP"
+  ]
 }

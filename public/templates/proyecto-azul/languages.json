@@ -1,6 +1,6 @@
 {
-  "name": "Aura",
-  "description": "E-commerce de botellas térmicas de acero inoxidable: tecnología de aislamiento, gama de colores y diseño minimalista premium.",
+  "name": "Azul",
+  "description": "Landing editorial de objetos de verano: colecciones de temporada, ritual y estilo de vida con estética costera.",
   "language": "React",
   "technologies": [
     "React 19",
@@ -10,6 +10,7 @@
     "Tailwind CSS",
     "shadcn/ui",
     "TypeScript",
-    "GSAP"
+    "GSAP",
+    "Framer Motion"
   ]
 }

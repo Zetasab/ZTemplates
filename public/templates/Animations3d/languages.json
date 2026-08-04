@@ -1,6 +1,12 @@
 {
   "name": "Animations 3D",
-  "description": "Template de animaciones 3D inmersivas con geometrías interactivas, scroll suave y efectos visuales avanzados.",
+  "description": "Experiencia 3D inmersiva de una moto Triumph con geometrías interactivas, scroll suave y efectos visuales avanzados.",
   "language": "JavaScript",
-  "technologies": ["Three.js", "GSAP", "Lenis", "Vite"]
+  "externalUrl": "https://animation3d.cesarsobrino.es/",
+  "technologies": [
+    "Three.js",
+    "GSAP",
+    "Lenis",
+    "Vite"
+  ]
 }

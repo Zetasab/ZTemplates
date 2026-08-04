@@ -1,6 +1,6 @@
 {
-  "name": "Aurum",
-  "description": "Landing de automoción de lujo: modelos, artesanía y especificaciones con animaciones cinematográficas y estética sofisticada.",
+  "name": "Axon",
+  "description": "Landing de teclados mecánicos gaming custom: anatomía, switches, especificaciones y ediciones limitadas con estética industrial.",
   "language": "React",
   "technologies": [
     "React 19",
@@ -11,6 +11,6 @@
     "shadcn/ui",
     "TypeScript",
     "GSAP",
-    "Lenis"
+    "Framer Motion"
   ]
 }

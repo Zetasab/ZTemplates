@@ -173,6 +173,7 @@ function generateTemplatesJson() {
                 description: langData?.description ?? null,
                 language: langData?.language ?? null,
                 technologies: langData?.technologies ?? [],
+                externalUrl: langData?.externalUrl ?? null,
                 path: relativeHtmlPath ? `templates/${entry.name}/${relativeHtmlPath}` : null,
                 downloadPath: `templates/${entry.name}`,
                 imagePath: imagePath,
