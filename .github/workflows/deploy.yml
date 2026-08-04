@@ -1,4 +1,4 @@
-﻿name: Deploy to GitHub Pages
+name: Deploy to GitHub Pages
 
 on:
   push:
@@ -31,29 +31,30 @@ jobs:
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2
 
-      - name: Build Animations3d
-        working-directory: public/templates/Animations3d
-        run: npm install && npm run build
+      - name: Install all template dependencies
+        run: |
+          set -e
+          for d in public/templates/*/; do
+            name=$(basename "$d")
+            if [ -f "$d/package-lock.json" ] && [ ! -f "$d/bun.lock" ] && [ ! -f "$d/bun.lockb" ]; then
+              echo "==> $name: npm install"
+              (cd "$d" && npm install)
+            else
+              echo "==> $name: bun install"
+              (cd "$d" && bun install)
+            fi
+          done
 
-      - name: Build aura-project
-        working-directory: public/templates/aura-project
-        run: bun install && bun run build
+      - name: Build vanilla templates
+        run: |
+          set -e
+          echo "==> Animations3d"
+          (cd public/templates/Animations3d && npm run build)
+          echo "==> portfolio-proyecto"
+          (cd public/templates/portfolio-proyecto && bun run build)
 
-      - name: Build aurum-project
-        working-directory: public/templates/aurum-project
-        run: bun install && bun run build
-
-      - name: Build kicks-lab-project
-        working-directory: public/templates/kicks-lab-project
-        run: bun install && bun run build
-
-      - name: Build pharmamodern-project
-        working-directory: public/templates/pharmamodern-project
-        run: bun install && bun run build
-
-      - name: Build portfolio-proyecto
-        working-directory: public/templates/portfolio-proyecto
-        run: bun install && bun run build
+      - name: Build TanStack templates with SSR previews
+        run: node scripts/ssr-previews.js
 
       - name: Install Angular dependencies
         run: npm ci
