@@ -332,7 +332,6 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
   viewDemo(template: TemplateItem) {
     const url = template.externalUrl ?? template.path;
     if (!url) return;
-    this.tracking.track(template.name, TemplateVisitType.Visit);
     this.tracking.trackProject(template.name, template.language ?? '', 'visit');
     window.open(url, '_blank', 'noopener');
   }
@@ -342,7 +341,6 @@ export class App implements OnInit, AfterViewInit, OnDestroy {
       alert(`No se encontró descarga.zip en la raíz del proyecto "${template.name}".`);
       return;
     }
-    this.tracking.track(template.name, TemplateVisitType.Download);
     this.tracking.trackProject(template.name, template.language ?? '', 'download');
     const a = document.createElement('a');
     a.href = template.zipPath;
