@@ -31,6 +31,19 @@ export class TemplateTrackingService {
     this.startHeartbeat();
   }
 
+  trackProject(proyect: string, type: string, action: 'visit' | 'download'): void {
+    const url = `${this.baseUrl}/api/template/${action}`;
+
+    fetch(url, {
+      method: 'POST',
+      mode: 'cors',
+      credentials: 'omit',
+      cache: 'no-store',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ idSeg: this.getIdSeg(), projects: [{ proyect, type }] })
+    }).catch(() => {});
+  }
+
   private startHeartbeat(): void {
     if (this.heartbeatIntervalId !== null) {
       return;
