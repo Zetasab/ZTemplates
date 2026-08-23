@@ -1,4 +1,15 @@
-# ZTemplates
+<h1 align="center">
+  <span style="color:#7C3AED">🗂️</span>
+  <span> Z</span><span style="color:#7C3AED">Templates</span>
+</h1>
+
+<p align="center">
+  Por si quieres ver — <a href="https://templates.cesarsobrino.es/"><strong>Live Demo</strong></a>
+</p>
+
+<p align="center">
+  <img src="portada.gif" alt="Demo del proyecto" width="100%" />
+</p>
 
 Galería web construida con **Angular 21** que actúa como portal/portainer de templates frontend. Permite explorar, previsualizar en vivo y descargar proyectos template listos para producción.
 
@@ -46,14 +57,43 @@ ZTemplates/
 
 ## Templates incluidos
 
+Más de 30 templates listos para producción, la mayoría construidos con **React 19 + TanStack Start + shadcn/ui**:
+
 | Template | Framework | Tecnologías destacadas |
 |---|---|---|
-| **Aura Project** | React | TanStack Start, TanStack Router, shadcn/ui, GSAP, Lenis |
-| **Aurum Project** | React | TanStack Start, TanStack Router, shadcn/ui, GSAP, Lenis |
-| **Kicks Lab Project** | React | TanStack Start, TanStack Router, Tailwind CSS |
-| **Pharmamodern Project** | React | TanStack Start, TanStack Router, Tailwind CSS |
-| **Portfolio Proyecto** | React | Vite, Tailwind CSS |
-| **Animations3d** | JavaScript | Vanilla JS, CSS 3D |
+| **Æther GT** | React | TanStack Start, TanStack Router, TanStack Query, Tailwind CSS, shadcn/ui, GSAP, Lenis |
+| **Aether** | React | TanStack Start, TanStack Router, TanStack Query, Tailwind CSS, shadcn/ui, GSAP, Lenis |
+| **Aura** | React | TanStack Start, TanStack Router, TanStack Query, Tailwind CSS, shadcn/ui, GSAP |
+| **Aurum** | React | TanStack Start, TanStack Router, TanStack Query, Tailwind CSS, shadcn/ui, GSAP, Lenis |
+| **Dachshund** | React | TanStack Start, TanStack Router, TanStack Query, Tailwind CSS, shadcn/ui, GSAP |
+| **Ember Gaming Chairs** | React | TanStack Start, TanStack Router, TanStack Query, Tailwind CSS, shadcn/ui, GSAP, Lenis |
+| **Fontanería** | React | TanStack Start, TanStack Router, TanStack Query, Tailwind CSS, shadcn/ui |
+| **Friengess** | React | TanStack Start, TanStack Router, TanStack Query, Tailwind CSS, shadcn/ui, GSAP, Framer Motion |
+| **FrikiForge** | React | TanStack Start, TanStack Router, TanStack Query, Tailwind CSS, shadcn/ui, GSAP |
+| **Hojas de Autor** | React | TanStack Start, TanStack Router, TanStack Query, Tailwind CSS, shadcn/ui, GSAP |
+| **Horologe** | React | TanStack Start, TanStack Router, TanStack Query, Tailwind CSS, shadcn/ui, GSAP, Lenis |
+| **Kicks Lab** | React | TanStack Start, TanStack Router, TanStack Query, Tailwind CSS, shadcn/ui, GSAP |
+| **Kryo Lab** | React | TanStack Start, TanStack Router, TanStack Query, Tailwind CSS, shadcn/ui, GSAP |
+| **Kuro Omakase** | React | TanStack Start, TanStack Router, TanStack Query, Tailwind CSS, shadcn/ui, GSAP |
+| **La Vetrina d'Oro** | React | TanStack Start, TanStack Router, TanStack Query, Tailwind CSS, shadcn/ui, GSAP |
+| **Maurié** | React | TanStack Start, TanStack Router, TanStack Query, Tailwind CSS, shadcn/ui, GSAP |
+| **Neonic** | React | TanStack Start, TanStack Router, TanStack Query, Tailwind CSS, shadcn/ui, GSAP, Motion |
+| **O'Henal** | React | TanStack Start, TanStack Router, TanStack Query, Tailwind CSS, shadcn/ui, GSAP |
+| **PharmaModern** | React | TanStack Start, TanStack Router, TanStack Query, Tailwind CSS, shadcn/ui |
+| **Portfolio** | React | Vite, Tailwind CSS, shadcn/ui, Framer Motion, React Router, TanStack Query |
+| **Axon** | React | TanStack Start, TanStack Router, TanStack Query, Tailwind CSS, shadcn/ui, GSAP, Framer Motion |
+| **Azul** | React | TanStack Start, TanStack Router, TanStack Query, Tailwind CSS, shadcn/ui, GSAP, Framer Motion |
+| **Forma** | React | TanStack Start, TanStack Router, TanStack Query, Tailwind CSS, shadcn/ui, GSAP, Motion |
+| **Grasa & Gloria** | React | TanStack Start, TanStack Router, TanStack Query, Tailwind CSS, shadcn/ui, GSAP |
+| **Vanguard** | React | TanStack Start, TanStack Router, TanStack Query, Tailwind CSS, shadcn/ui, GSAP, Lenis |
+| **Optika** | React | TanStack Start, TanStack Router, TanStack Query, Tailwind CSS, shadcn/ui, GSAP |
+| **Módulo** | React | TanStack Start, TanStack Router, TanStack Query, Tailwind CSS, shadcn/ui, GSAP, Lenis |
+| **Kinetic** | React | TanStack Start, TanStack Router, TanStack Query, Tailwind CSS, shadcn/ui, GSAP, Framer Motion |
+| **Teviso** | React | TanStack Start, TanStack Router, TanStack Query, Tailwind CSS, shadcn/ui, GSAP, Lenis |
+| **X-Forge** | React | TanStack Start, TanStack Router, TanStack Query, Tailwind CSS, shadcn/ui, GSAP |
+| **Animations 3D** | JavaScript | Three.js, GSAP, Lenis, Vite |
+
+> La lista completa y actualizada se genera automáticamente en `public/templates.json` a partir de las carpetas de `public/templates/`.
 
 ---
 
@@ -81,6 +121,8 @@ ZTemplates/
 |---|---|
 | `npm start` | Genera `templates.json` y levanta el servidor de desarrollo Angular |
 | `npm run build` | Genera `templates.json` y compila la aplicación para producción |
+| `npm run watch` | Build en modo watch (configuración `development`) |
+| `npm run deploy` | Publica el `dist/` en GitHub Pages (`angular-cli-ghpages`) |
 | `npm test` | Ejecuta los tests con Vitest |
 
 > `generate-templates.js` se ejecuta como paso `pre` antes de `start` y `build`.
@@ -91,9 +133,11 @@ ZTemplates/
 
 | Paquete | Versión |
 |---|---|
-| Angular | ^21.2 |
+| Angular | ^21.1 |
 | PrimeNG | ^21.1 |
+| @primeng/themes | ^21.0 |
 | @primeuix/themes (Aura) | ^2.0 |
+| GSAP | ^3.15 |
 | TypeScript | ~5.9 |
 | Vitest | ^4.0 |
 
@@ -121,7 +165,7 @@ export const environment = {
 };
 ```
 
-Cambia `apiUrl` en `environment.prod.ts` para apuntar a tu API en producción.
+En producción (`environment.prod.ts`) apunta a `https://cesarsobapigateway.up.railway.app`. Cambia `apiUrl` en cada fichero según el entorno.
 
 ---
 
